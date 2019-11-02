@@ -1,0 +1,59 @@
+Location:
+    -
+        Name: Route 117 Entrance
+        HasPKMN: No
+        LocationReqs:
+            - Verdanturf Town
+        TrainerList:
+        WildTableList:
+        Sublocations:
+    -
+        Name: Route 117
+        HasPKMN: No
+        LocationReqs:
+            - Mauville City
+        TrainerList:
+        WildTableList:
+        Sublocations:
+    -
+        Name: Route 117
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 117 Entrance
+        TrainerList:
+             - AnnaAndMeg 1
+             - Dylan 1
+             - Lydia 1
+             - Maria 1
+             - Derek
+             - Isaac 1
+        WildTableList: 
+            - MAP_ROUTE117
+        Sublocations:
+            -
+                Name: Route 117 Great Ball
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 117
+                FlagReqs:
+                ItemReqs:
+                NormalItem: ITEM_GREAT_BALL
+                Code: |
+                    Route117_EventScript_1B1598:: @ 81B1598
+                        giveitem_std ITEMNAME, 1, 1
+                        end 
+            -
+                Name: Route 117 Revive
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                FlagReqs:
+                    - Stone Badge
+                ItemReqs:
+                    - Cut
+                NormalItem: ITEM_REVIVE
+                Code: |
+                    Route117_EventScript_1B15A5:: @ 81B15A5
+                        giveitem_std ITEMNAME, 1, 1
+                        end 

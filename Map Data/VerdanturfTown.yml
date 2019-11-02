@@ -1,0 +1,47 @@
+Location:
+    -
+        Name: Verdanturf Entrance
+        HasPKMN: No
+        LocationReqs:
+            - Rusturf Tunnel Right Entrance
+        TrainerList:
+        WildTableList:
+        Sublocations:
+    -
+        Name: Verdanturf Entrance
+        HasPKMN: No
+        LocationReqs:
+            - Route 117
+        TrainerList:
+        WildTableList:
+        Sublocations:
+    -
+        Name: Verdanturf Town
+        LocationReqs:
+            - Verdanturf Entrance
+        Sublocations:
+            -
+                Name: Attract TM
+                ScriptFileName: data/maps/VerdanturfTown_ContestLobby/scripts.inc
+                TextFileName: data/maps/VerdanturfTown_ContestLobby/text.inc
+                Type: Item
+                LocationReqs:
+                    - Verdanturf Town
+                NormalItem: ITEM_TM45_ATTRACT
+                Code: |
+                    RustboroCity_EventScript_1B172B:: @ 81B172B
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+                Text: |
+                        VerdanturfTown_ContestLobby_Text_177DEC:: @ 8177DEC
+                            .string "Oh, my love for POKéMON...\n"
+                            .string "The ITEMNAMEion they evoke in me...\p"
+                            .string "Whoops!\n"
+                            .string "You weren't meant to see that!\l"
+                            .string "Well, anyway.\p"
+                            .string "If you're entering a CONTEST, try this\n"
+                            .string "move on for size.$"
+
+                        VerdanturfTown_ContestLobby_Text_177E98:: @ 8177E98
+                            .string "My feelings for POKéMON...\n"
+                            .string "Oh, they ITEMNAME me so...$"

@@ -1,0 +1,62 @@
+Location:
+    -
+        Name: Mauville City Gym Badge
+        FileName: data/maps/MauvilleCity_Gym/scripts.inc
+        LocationReqs:
+            - Mauville Gym TM
+        Type: Gym
+        HasPKMN: No
+        WildTableList:
+        FlagReqs:
+        ItemReqs:
+        FlagsSet:
+        ReachableReqs:
+        ItemUnlock: Rock Smash
+        InfeasibleBadges:
+        NormalBadge: Dynamo Badge
+        BadgeLine: |
+            MauvilleCity_Gym_EventScript_1565DB:: @ 81565DB
+                message MauvilleCity_Gym_Text_180DAF
+                waitmessage
+                call MauvilleCity_Gym_EventScript_1A02C5
+                msgbox MauvilleCity_Gym_Text_180DDA, 4
+                setflag FLAG_DEFEATED_MAUVILLE_GYM
+                setflag BADGEFLAG
+                addvar VAR_PETALBURG_GYM_STATE, 1
+                compare VAR_PETALBURG_GYM_STATE, 6
+                call_if_eq MauvilleCity_Gym_EventScript_1A00FB
+                setvar VAR_SPECIAL_8, 3
+                call MauvilleCity_Gym_EventScript_1A01C0
+                special MauvilleGymSpecial3
+                special DrawWholeMapView
+                playse SE_KI_GASYAN
+                goto MauvilleCity_Gym_EventScript_15661D
+                end
+        Code:
+        Text:
+            -
+                File: data/maps/MauvilleCity_Gym/text.inc
+                Text: |        
+                    MauvilleCity_Gym_Text_180DAF:: @ 8180DAF
+                        .string "{PLAYER} received the BADGENAME\n"
+                        .string "from WATTSON.$"
+                File: data/maps/MauvilleCity_Gym/text.inc
+                Text: |        
+                     MauvilleCity_Gym_Text_180815:: @ 8180815
+                        .string "Hey, how's it going, the CHAMPION-\n"
+                        .string "bound {PLAYER}?\p"
+                        .string "WATTSON, the LEADER of MAUVILLE\n"
+                        .string "GYM, uses GYMTYPE-type POKéMON.\p"
+                        .string "If you challenge him with WATER-type\n"
+                        .string "POKéMON, he'll zap them! Bzzt!\p"
+                        .string "And, he's put in switch-controlled doors\n"
+                        .string "all over his GYM! Eccentric!\p"
+                        .string "Hey, go for it!$"     
+            -
+                File: data/maps/RustboroCity/text.inc
+                Text: |        
+                    RustboroCity_Text_167439:: @ 8167439
+                        .string "RUSTBORO CITY POKéMON GYM\n"
+                        .string "LEADER: ROXANNE\p"
+                        .string ""The GYMTYPE-loving honors student!"$"                       
+                        

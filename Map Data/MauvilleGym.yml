@@ -1,0 +1,31 @@
+Location:
+    -
+        Name: Mauville Gym TM
+        ScriptFileName: data/maps/MauvilleCity_Gym/scripts.inc
+        TextFileName: data/maps/MauvilleCity_Gym/text.inc
+        HasPKMN: Yes
+        Type: Item
+        LocationReqs:
+            - Mauville City
+        TrainerList:
+             - Kirk
+             - Ben
+             - Shawn
+             - Vivian
+             - Wattson
+        NormalItem: ITEM_TM34_SHOCK_WAVE
+        Code: |
+            MauvilleCity_Gym_EventScript_15661D:: @ 815661D
+                giveitem_std ITEMNAME
+                compare RESULT, 0
+                goto_if_eq MauvilleCity_Gym_EventScript_1A029B
+                msgbox MauvilleCity_Gym_Text_180E76, 4
+                setflag FLAG_RECEIVED_TM34
+                release
+                end
+        Text: |
+            MauvilleCity_Gym_Text_180E76:: @ 8180E76
+                .string "That TM34 there contains ITEMNAME.\p"
+                .string "It's a trustworthy move that never\n"
+                .string "misses! You can count on it!$"
+        Sublocations:

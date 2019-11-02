@@ -1,0 +1,208 @@
+Location:
+    -
+        Name: Route 104 South
+        HasPKMN: Yes
+        LocationReqs:
+            - Petalburg City
+        TrainerList:
+             - Billy
+             - Winston 1
+        WildTableList: 
+            - MAP_ROUTE104
+        Sublocations:
+            -
+                Name: Route 104 Pokeball
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 104 South
+                FlagReqs:
+                    - Route 104 South
+                ItemReqs:
+                    - Cut
+                NormalItem: ITEM_POKE_BALL
+                Code: |
+                    Route104_EventScript_1B1460:: @ 81B1460
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 104 Water
+                WildTableList: 
+                    - Route104_WaterMons 
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+    -
+        Name: Route 104 North
+        HasPKMN: Yes
+        LocationReqs:
+            - Petalburg Woods
+        TrainerList:
+             - Haley 1
+             - Cindy 4
+             - Gina And Mia 1
+             - Ivan
+        WildTableList: 
+            - MAP_ROUTE104
+        Sublocations:
+            -
+                Name: Flower Shop White Herb               
+                ScriptFileName: data/maps/Route104/scripts.inc
+                TextFileName: data/maps/Route104/text.inc
+                Type: Item
+                LocationReqs:
+                    - Route 104 North
+                FlagReqs:
+                    - Dynamo Badge 
+                ItemReqs:
+                NormalItem: ITEM_WHITE_HERB
+                Code: |
+                    Route104_EventScript_14EF09:: @ 814EF09
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_WHITE_HERB, Route104_EventScript_14EF38
+                        msgbox Route104_Text_16DD91, 4
+                        giveitem_std ITEMNAME
+                        compare RESULT, 0
+                        goto_if_eq Route104_EventScript_1A029B
+                        setflag FLAG_RECEIVED_WHITE_HERB
+                        release
+                        end
+                Text: |
+                    Route104_Text_16DD91:: @ 816DD91
+                        .string "This FLOWER SHOP started selling\n"
+                        .string "saplings recently.\p"
+                        .string "It made me so happy, I went overboard\n"
+                        .string "shopping. I don't need this ITEMNAME\l"
+                        .string "anymore. Would you take it, please?$"
+            -
+                Name: Route 104 Potion
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                NormalItem: ITEM_POTION
+                Code: |
+                    Route104_EventScript_1B147A:: @ 81B147A
+                        giveitem_std ITEMNAME, 1, 1
+                        end 
+            -
+                Name: Route 104 PP Up
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs:
+                    - Route 104 North
+                Type: Item
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+                NormalItem: ITEM_PP_UP
+                Code: |
+                    Route104_EventScript_1B1453:: @ 81B1453
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 104 Shore
+                Type: Map
+                LocationReqs:
+                    - Route 104 North                
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+            -
+                Name: Route 104 Shore
+                Type: Map
+                LocationReqs:
+                    - Route 104 North
+                FlagReqs:
+                    - Stone Badge
+                ItemReqs:
+                    - Cut        
+            -
+                Name: Route 104 X Accuracy
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 104 Shore
+                NormalItem: ITEM_X_ACCURACY
+                Code: |
+                    Route104_EventScript_1B146D:: @ 81B146D
+                        giveitem_std ITEMNAME, 1, 1
+                        end       
+            -
+                Name: Route 104 Bullet Seed TM
+                ScriptFileName: data/maps/Route104/scripts.inc
+                TextFileName: data/maps/Route104/text.inc
+                Type: Item
+                LocationReqs:
+                    - Route 104 Shore
+                NormalItem: ITEM_TM09_BULLET_SEED
+                Code: |
+                    Route104_EventScript_14EF93:: @ 814EF93
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_TM09, Route104_EventScript_14EFC2
+                        msgbox Route104_Text_16DC5F, 4
+                        giveitem_std ITEMNAME
+                        compare RESULT, 0
+                        goto_if_eq Route104_EventScript_1A029B
+                        setflag FLAG_RECEIVED_TM09
+                        release
+                        end
+            -
+                Name: Route 104 Chesto Berry Lady               
+                ScriptFileName: data/maps/Route104/scripts.inc
+                TextFileName: data/text/berries.inc
+                Type: Item
+                LocationReqs:
+                    - Route 104 North
+                FlagReqs:
+                ItemReqs:
+                NormalItem: ITEM_CHESTO_BERRY
+                Code: |
+                    Route104_EventScript_14EF09:: @ 814EF09
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_WHITE_HERB, Route104_EventScript_14EF38
+                        msgbox Route104_Text_16DD91, 4
+                        giveitem_std ITEMNAME
+                        compare RESULT, 0
+                        goto_if_eq Route104_EventScript_1A029B
+                        setflag FLAG_RECEIVED_WHITE_HERB
+                        release
+                        end
+                Text: |
+                    Route104_Text_1C55B9:: @ 81C55B9
+                        .string "If you see ITEMNAMES growing in loamy\n"
+                        .string "soil, feel free to take them.\p"
+                        .string "But make sure you plant a ITEMNAME in the\n"
+                        .string "same spot. That's common courtesy.\p"
+                        .string "Here, I'll share this with you.$"       
+            -
+                Name: Flower Shop Wailmer Pail               
+                ScriptFileName: data/maps/Route104_PrettyPetalFlowerShop/scripts.inc
+                TextFileName: data/text/berries.inc
+                Type: Item
+                LocationReqs:
+                    - Route 104 North
+                FlagReqs:
+                ItemReqs:
+                NormalItem: ITEM_WAILMER_PAIL
+                Code: |
+                    Route104_PrettyPetalFlowerShop_EventScript_15BEB9:: @ 815BEB9
+                        msgbox Route104_PrettyPetalFlowerShop_Text_1C6158, 4
+                        giveitem_std ITEMNAME
+                        msgbox Route104_PrettyPetalFlowerShop_Text_1C61E8, 4
+                        setflag FLAG_RECEIVED_WAILMER_PAIL
+                        release
+                        end
+                Text: |
+                    Route104_PrettyPetalFlowerShop_Text_1C61E8:: @ 81C61E8
+                        .string "While BERRY plants are growing,\n"
+                        .string "water them with the ITEMNAME.\p"
+                        .string "Oh, another thing.\p"
+                        .string "If you don't pick BERRIES for a while,\n"
+                        .string "they'll drop off onto the ground.\l"
+                        .string "But they'll sprout again.\p"
+                        .string "Isn't that awesome?\n"
+                        .string "It's like they have the will to live.$"                        

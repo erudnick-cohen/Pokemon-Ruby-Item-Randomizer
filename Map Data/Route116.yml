@@ -1,0 +1,112 @@
+Location:
+    -
+        Name: Route 116
+        HasPKMN: Yes
+        LocationReqs:
+            - Rustboro City
+        TrainerList:
+             - Joey
+             - Jose
+             - Janice
+             - Clark
+        WildTableList: 
+            - MAP_ROUTE116
+        Sublocations:
+            -
+                Name: Route 116 Repel
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 116
+                FlagReqs:
+                ItemReqs:
+                NormalItem: ITEM_REPEL
+                Code: |
+                    Route116_EventScript_1B157E:: @ 81B157E
+                        giveitem_std ITEMNAME, 1, 1
+                        end 
+            -
+                Name: Route 116 X Special
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 116
+                FlagReqs:
+                ItemReqs:
+                NormalItem: ITEM_X_SPECIAL
+                Code: |
+                    Route116_EventScript_1B1564:: @ 81B1564
+                        giveitem_std ITEMNAME, 1, 1
+                        end             -
+            -
+                Name: Route 116 Ether
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 116
+                FlagReqs:
+                    - Stone Badge
+                ItemReqs:
+                    - Cut
+                NormalItem: ITEM_ETHER
+                Code: |
+                    Route116_EventScript_1B1571:: @ 81B1571
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+                TrainerList:
+                    - Karen 1
+                    - Jerry 1
+            -
+                Name: Route 116 Devon Repeat Ball
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 116
+                FlagReqs:
+                    - Dynamo Badge
+                ItemReqs:
+                    - Rock Smash
+                NormalItem: ITEM_HP_UP
+                Code: |
+                    Route116_EventScript_1B158B:: @ 81B158B
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+                TrainerList: 
+            -
+                Name: Route 116 Devon Repeat Ball
+                ScriptFileName: data/maps/Route116/scripts.inc
+                TextFileName: data/maps/Route116/text.inc
+                Type: Item
+                LocationReqs:
+                    - Route 116
+                FlagReqs:
+                    - Dynamo Badge
+                ItemReqs:
+                    - Rock Smash
+                NormalItem: ITEM_REPEAT_BALL
+                Code: |
+                    Route116_EventScript_150A94:: @ 8150A94
+                        setflag FLAG_MET_DEVON_EMPLOYEE
+                        giveitem_std ITEMNAME
+                        compare RESULT, 0
+                        goto_if_eq Route116_EventScript_150B12
+                        msgbox Route116_Text_1707B8, 4
+                        closemessage
+                        compare FACING, 2
+                        call_if_eq Route116_EventScript_150AEE
+                        compare FACING, 1
+                        call_if_eq Route116_EventScript_150AEE
+                        compare FACING, 3
+                        call_if_eq Route116_EventScript_150AEE
+                        compare FACING, 4
+                        call_if_eq Route116_EventScript_150AF9
+                        removeobject LAST_TALKED
+                        clearflag FLAG_HIDE_EMPLOYEE_DEVON_CORP_3F
+                        setflag FLAG_RECEIVED_REPEAT_BALL
+                        release
+                        end
+                Text: |
+                    Route116_Text_17082A:: @ 817082A
+                        .string "Your BAG is jam-packed.\n"
+                        .string "I can't give you this ITEMNAME.$"
+                TrainerList:                 

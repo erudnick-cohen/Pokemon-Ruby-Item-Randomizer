@@ -1,0 +1,130 @@
+Location:
+    -
+        Name: Petalburg Woods
+        HasPKMN: Yes
+        WildTableList:
+            - MAP_PETALBURG_WOODS
+        LocationReqs:
+            - Route 104 South
+        TrainerList:
+            - Grunt 9
+            - Grunt 36
+            - Lyle
+            - James 1
+        Sublocations:
+            -
+                Name: Petalburg Woods Paralyze Heal
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Petalburg Woods
+                NormalItem: ITEM_PARALYZE_HEAL
+                Code: |
+                    PetalburgWoods_EventScript_1B1779:: @ 81B1779
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Petalburg Woods Ether
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Petalburg Woods
+                NormalItem: ITEM_ETHER
+                Code: |
+                    PetalburgWoods_EventScript_1B176C:: @ 81B176C
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Petalburg Woods Cut Great Ball
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Petalburg Woods
+                FlagReqs:
+                    - Stone Badge
+                ItemReqs:
+                    - Cut
+                NormalItem: ITEM_GREAT_BALL
+                Code: |
+                    PetalburgWoods_EventScript_1B175F:: @ 81B175F
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Petalburg Woods X Attack
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Petalburg Woods
+                FlagReqs:
+                    - Stone Badge
+                ItemReqs:
+                    - Cut
+                NormalItem: ITEM_X_ATTACK
+                Code: |
+                    PetalburgWoods_EventScript_1B1752:: @ 81B1752
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Petalburg Woods Miracle Seed
+                ScriptFileName: data/maps/PetalburgWoods/scripts.inc
+                TextFileName: data/maps/PetalburgWoods/text.inc
+                Type: Item
+                LocationReqs:
+                    - Petalburg Woods
+                FlagReqs:
+                    - Stone Badge
+                ItemReqs:
+                    - Cut
+                NormalItem: ITEM_MIRACLE_SEED
+                Code: |
+                    PetalburgWoods_EventScript_15CEDC:: @ 815CEDC
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_MIRACLE_SEED, PetalburgWoods_EventScript_15CF0B
+                        msgbox PetalburgWoods_Text_19549E, 4
+                        giveitem_std ITEMNAME
+                        compare RESULT, 0
+                        goto_if_eq PetalburgWoods_EventScript_1A029B
+                        setflag FLAG_RECEIVED_MIRACLE_SEED
+                        release
+                        end
+                Text: |
+                    PetalburgWoods_Text_195503:: @ 8195503
+                        .string "It's a ITEMNAME.\n"
+                        .string "If a POKéMON holds that item, its\l"
+                        .string "GRASS-type moves become stronger.\p"
+                        .string "Besides ITEMNAME, I think there are\n"
+                        .string "other convenient items for POKéMON\l"
+                        .string "to hold.$"
+                    
+            -
+                Name: Petalburg Woods Devon Great Ball
+                ScriptFileName: data/maps/PetalburgWoods/scripts.inc
+                TextFileName: data/maps/PetalburgWoods/text.inc
+                Type: Item
+                LocationReqs:
+                    - Petalburg Woods
+                NormalItem: ITEM_GREAT_BALL
+                Code: |
+                    PetalburgWoods_EventScript_15CDFA:: @ 815CDFA
+                        msgbox PetalburgWoods_Text_194FA4, 4
+                        closemessage
+                        applymovement 3, PetalburgWoods_Movement_15CEB7
+                        waitmovement 0
+                        removeobject 3
+                        applymovement 255, PetalburgWoods_Movement_1A0845
+                        waitmovement 0
+                        msgbox PetalburgWoods_Text_19507E, 4
+                        giveitem_std ITEMNAME
+                        compare RESULT, 0
+                        goto_if_eq PetalburgWoods_EventScript_15CE3F
+                        goto PetalburgWoods_EventScript_15CE4D
+                        end
+                Text: |
+                    PetalburgWoods_Text_19507E:: @ 819507E
+                        .string "Whew...\n"
+                        .string "That was awfully close!\p"
+                        .string "Thanks to you, he didn't rob me of\n"
+                        .string "these important papers.\p"
+                        .string "I know, I'll give you a ITEMNAME as\n"
+                        .string "my thanks!$"                    

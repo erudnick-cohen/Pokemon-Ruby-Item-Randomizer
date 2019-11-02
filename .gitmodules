@@ -1,0 +1,3 @@
+[submodule "pokeruby-item-randomizer"]
+	path = pokeruby-item-randomizer
+	url = https://github.com/erudnick-cohen/pokeruby-item-randomizer

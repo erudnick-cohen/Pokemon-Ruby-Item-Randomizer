@@ -1,0 +1,34 @@
+Location:
+    -
+        Name: Rustboro Gym TM
+        ScriptFileName: data/maps/RustboroCity_Gym/scripts.inc
+        TextFileName: data/maps/RustboroCity_Gym/text.inc
+        HasPKMN: Yes
+        Type: Item
+        LocationReqs:
+            - Rustboro City
+        TrainerList:
+             - Josh
+             - Tommy
+             - Rox
+             - Ivan
+        NormalItem: ITEM_TM39_ROCK_TOMB
+        Code: |
+            RustboroCity_Gym_EventScript_15793C:: @ 815793C
+                giveitem_std ITEMNAME
+                compare RESULT, 0
+                goto_if_eq RustboroCity_Gym_EventScript_1A029B
+                setflag FLAG_RECEIVED_TM39
+                msgbox RustboroCity_Gym_Text_184170, 4
+                release
+                end
+        Text: |
+            RustboroCity_Gym_Text_184170:: @ 8184170
+                .string "That TM39 contains ITEMNAME.\p"
+                .string "It not only inflicts damage by dropping\n"
+                .string "rocks, it also lowers SPEED.\p"
+                .string "If you use a TM, it instantly teaches\n"
+                .string "the move to a POKéMON.\p"
+                .string "Remember, a TM can be used only once,\n"
+                .string "so think before you use it.$"
+        Sublocations:

@@ -1,0 +1,22 @@
+Location:
+    -
+        Name: Route 102
+        HasPKMN: Yes
+        FlagReqs:
+            - Rival 1 Beaten
+        TrainerList:
+             - Calvin 1
+             - Rick
+             - Tianna
+             - Allen
+        WildTableList: 
+            - MAP_ROUTE102
+        Sublocations:
+            -
+                Name: Route 102 Water
+                WildTableList: 
+                    - Route102_WaterMons 
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf

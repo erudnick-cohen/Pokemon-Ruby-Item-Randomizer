@@ -1,0 +1,216 @@
+Location:
+    -
+        Name: Rustboro City
+        LocationReqs:
+            - Route 104 North
+        Sublocations:
+            -
+                Name: Rustboro City X Defend
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Rustboro City
+                WildTableList: 
+                NormalItem: ITEM_X_DEFEND
+                Code: |
+                    RustboroCity_EventScript_1B172B:: @ 81B172B
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Rustboro Premier Ball
+                ScriptFileName: data/maps/RustboroCity_Flat2_2F/scripts.inc 
+                Type: Item
+                LocationReqs:
+                    - Rustboro City
+                NormalItem: ITEM_PREMIER_BALL
+                Code: |
+                    RustboroCity_Flat2_2F_EventScript_157DA0:: @ 8157DA0
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_PREMIER_BALL_RUSTBORO, RustboroCity_Flat2_2F_EventScript_157DCF
+                        msgbox RustboroCity_Flat2_2F_Text_185461, 4
+                        giveitem_std ITEMNAME
+                        compare RESULT, 0
+                        goto_if_eq RustboroCity_Flat2_2F_EventScript_1A029B
+                        setflag FLAG_RECEIVED_PREMIER_BALL_RUSTBORO
+                        release
+                        end
+            -
+                Name: Cut HM
+                ScriptFileName: data/maps/RustboroCity_CuttersHouse/scripts.inc 
+                TextFileName: data/maps/RustboroCity_CuttersHouse/text.inc
+                Type: Item
+                FlagReqs:
+                LocationReqs:
+                    - Rustboro City
+                Code: |
+                    RustboroCity_CuttersHouse_EventScript_157D27:: @ 8157D27
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_HM01, RustboroCity_CuttersHouse_EventScript_157D53
+                        msgbox RustboroCity_CuttersHouse_Text_18509C, 4
+                        giveitem_std ITEMNAME
+                        setflag FLAG_RECEIVED_HM01
+                        msgbox RustboroCity_CuttersHouse_Text_1851C9, 4
+                        release
+                        end
+                Text: |
+                    RustboroCity_CuttersHouse_Text_1851C9:: @ 81851C9
+                        .string "That HM, it's ITEMNAME.\p"
+                        .string "An HM move is one that can be used\n"
+                        .string "by POKéMON out of a battle.\p"
+                        .string "Any POKéMON that's learned ITEMNAME can\n"
+                        .string "chop down thin trees if the TRAINER\l"
+                        .string "has earned the STONE BADGE.\p"
+                        .string "And, unlike a TM, an HM doesn't break\n"
+                        .string "after one use.$"
+
+                    RustboroCity_CuttersHouse_Text_1852B3:: @ 81852B3
+                        .string "When they were expanding the city of\n"
+                        .string "RUSTBORO, my dad helped out.\p"
+                        .string "He made his POKéMON use ITEMNAME to clear\n"
+                        .string "the land of trees.$"
+            -
+                Name: Devon Goods Great Ball
+                ScriptFileName: data/maps/RustboroCity/scripts.inc
+                TextFileName: data/maps/RustboroCity/text.inc
+                Type: Item
+                LocationReqs:
+                    - Rustboro City
+                NormalItem: ITEM_GREAT_BALL
+                Code: |
+                     RustboroCity_EventScript_14C77D:: @ 814C77D
+                        compare VAR_TEMP_1, 0
+                        call_if_eq RustboroCity_EventScript_14C7FE
+                        compare VAR_TEMP_1, 1
+                        call_if_eq RustboroCity_EventScript_14C82A
+                        compare VAR_TEMP_1, 2
+                        call_if_eq RustboroCity_EventScript_14C856
+                        compare VAR_TEMP_1, 3
+                        call_if_eq RustboroCity_EventScript_14C882
+                        compare VAR_TEMP_1, 4
+                        call_if_eq RustboroCity_EventScript_14C8B8
+                        msgbox RustboroCity_Text_166FB4, 4
+                        giveitem_std ITEMNAME
+                        compare RESULT, 0
+                        call_if_eq RustboroCity_EventScript_14C7F5
+                        msgbox RustboroCity_Text_16707F, 4
+                        closemessage
+                        setflag FLAG_RETURNED_DEVON_GOODS
+                        setflag FLAG_HIDE_DEVON_RUSTBORO
+                        setvar VAR_RUSTBORO_STATE, 5
+                        delay 30
+                        warp MAP_RUSTBORO_CITY_DEVON_CORP_3F, 255, 2, 2
+                        waitstate
+                        releaseall
+                        end    
+                Text: |
+                    RustboroCity_Text_166FB4:: @ 8166FB4
+                        .string "Oh! How did it go?\n"
+                        .string "The DEVON GOODS?\p"
+                        .string "You did!\n"
+                        .string "You got them back!\p"
+                        .string "You really are a great TRAINER!\p"
+                        .string "I know! As my thanks, I'll give you\n"
+                        .string "another ITEMNAME!$"
+
+                    RustboroCity_Text_16704C:: @ 816704C
+                        .string "Your BAG's full.\n"
+                        .string "I can't give you this ITEMNAME.$"
+                        
+            -
+                Name: Mr. Stone's Letter
+                ScriptFileName: maps/RustboroCity_DevonCorp_3F/scripts.inc
+                TextFileName: maps/RustboroCity_DevonCorp_3F/text.inc
+                Type: Item
+                LocationReqs:
+                    - Devon Goods Great Ball
+                Code: |
+                    RustboroCity_DevonCorp_3F_EventScript_157752:: @ 8157752
+                        lockall
+                        msgbox RustboroCity_DevonCorp_3F_Text_18374C, 4
+                        closemessage
+                        applymovement 2, RustboroCity_DevonCorp_3F_Movement_157815
+                        waitmovement 0
+                        delay 80
+                        applymovement 2, RustboroCity_DevonCorp_3F_Movement_15781E
+                        waitmovement 0
+                        msgbox RustboroCity_DevonCorp_3F_Text_183903, 4
+                        closemessage
+                        playbgm MUS_TSURETEK, FALSE
+                        applymovement 2, RustboroCity_DevonCorp_3F_Movement_157803
+                        applymovement 255, RustboroCity_DevonCorp_3F_Movement_157827
+                        waitmovement 0
+                        msgbox RustboroCity_DevonCorp_3F_Text_18394A, 4
+                        closemessage
+                        fadedefaultbgm
+                        applymovement 2, RustboroCity_DevonCorp_3F_Movement_157812
+                        applymovement 255, RustboroCity_DevonCorp_3F_Movement_157835
+                        waitmovement 0
+                        msgbox RustboroCity_DevonCorp_3F_Text_18320B, 4
+                        giveitem_std ITEMNAME
+                        msgbox RustboroCity_DevonCorp_3F_Text_18337E, 4
+                        playfanfare MUS_FANFA4
+                        message RustboroCity_DevonCorp_3F_Text_183422
+                        waitfanfare
+                        waitmessage
+                        setflag FLAG_SYS_POKENAV_GET
+                        setflag FLAG_RECEIVED_POKENAV
+                        msgbox RustboroCity_DevonCorp_3F_Text_183439, 4
+                        setflag FLAG_HIDE_TUNNER_DIGGER_ROUTE116
+                        clearflag FLAG_HIDE_BOYFRIEND_RUSTURF_TUNNEL
+                        clearflag FLAG_HIDE_GIRLFRIEND_RUSTURF_TUNNEL
+                        clearflag FLAG_HIDE_MR_BRINEY_ROUTE104_HOUSE
+                        clearflag FLAG_HIDE_PEEKO_BRINEY_HOUSE
+                        setvar VAR_BRINEY_LOCATION, 1
+                        clearflag FLAG_HIDE_RIVAL_RUSTBORO
+                        setvar VAR_DEVON_CORP_3F_STATE, 1
+                        releaseall
+                        end   
+                Text: |
+                    RustboroCity_DevonCorp_3F_Text_18320B:: @ 818320B
+                        .string "I'm MR. STONE, the PRESIDENT of\n"
+                        .string "the DEVON CORPORATION.\p"
+                        .string "I'd just got word about you!\p"
+                        .string "You saved our staff not just once,\n"
+                        .string "but twice!\p"
+                        .string "I have a favor to ask of an amazing\n"
+                        .string "person like you.\p"
+                        .string "I understand that you're delivering\n"
+                        .string "a package to SLATEPORT's SHIPYARD.\p"
+                        .string "Well, on the way, could you stop off in\n"
+                        .string "DEWFORD TOWN?\p"
+                        .string "I was hoping that you'd deliver a ITEMNAME\n"
+                        .string "to STEVEN in DEWFORD.$"                      
+            -
+                Name: Mr. Stone's Exp. Share
+                ScriptFileName: maps/RustboroCity_DevonCorp_3F/scripts.inc
+                TextFileName: maps/RustboroCity_DevonCorp_3F/text.inc
+                Type: Item
+                LocationReqs:
+                    - Devon Goods Great Ball
+                FlagReqs:
+                    - Gave Steven Letter
+                Code: |
+                    RustboroCity_DevonCorp_3F_EventScript_157864:: @ 8157864
+                        msgbox RustboroCity_DevonCorp_3F_Text_18353E, 4
+                        giveitem_std ITEM_EXP_SHARE
+                        compare RESULT, 0
+                        goto_if_eq RustboroCity_DevonCorp_3F_EventScript_1A029B
+                        setflag FLAG_RECEIVED_EXP_SHARE
+                        msgbox RustboroCity_DevonCorp_3F_Text_1835B3, 4
+                        closemessage
+                        applymovement LAST_TALKED, RustboroCity_DevonCorp_3F_Movement_1A083D
+                        waitmovement 0
+                        release
+                        end
+                Text: |
+                    RustboroCity_DevonCorp_3F_Text_1835B3:: @ 81835B3
+                        .string "MR. STONE: A POKéMON holding that\n"
+                        .string "ITEMNAME will be given some of the\l"
+                        .string "EXP Points from battle.\p"
+                        .string "It will get EXP Points even if it didn't\n"
+                        .string "actually battle.\p"
+                        .string "I would say ITEMNAME is quite useful\n"
+                        .string "for raising weak POKéMON.$"                       
+                        

@@ -1,0 +1,59 @@
+Location:
+    -
+        Name: Petalburg City
+        LocationReqs:
+            - Route 102
+        Sublocations:
+            -
+                Name: Petalburg City Max Revive
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Petalburg City
+                WildTableList: 
+                    - MAP_PETALBURG_CITY
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+                NormalItem: ITEM_MAX_REVIVE
+                Code: |
+                    PetalburgCity_EventScript_1B1704:: @ 81B1704
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Petalburg City Ether
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Petalburg City
+                WildTableList: 
+                    - PetalburgCity_WaterMonsInfo
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+                NormalItem: ITEM_ETHER
+                Code: |
+                    PetalburgCity_EventScript_1B1711:: @ 81B1711
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Surf HM
+                ScriptFileName: data/maps/PetalburgCity_WallysHouse/scripts.inc
+                TextFileName: data/maps/PetalburgCity_WallysHouse/text.inc
+                Type: Item
+                FlagReqs:
+                    - Petalburg Gym
+                Code: |
+                    PetalburgCity_WallysHouse_EventScript_154406:: @ 8154406
+                        msgbox PetalburgCity_WallysHouse_Text_179996, 4
+                        giveitem_std ITEMNAME
+                        setflag FLAG_RECEIVED_HM03
+                        msgbox PetalburgCity_WallysHouse_Text_179B14, 4
+                        release
+                        end
+                Text: |
+                    PetalburgCity_WallysHouse_Text_179B14:: @ 8179B14
+                        .string "If your POKéMON can ITEMNAME, you'll be\n"
+                        .string "able to go to all sorts of places.$"
