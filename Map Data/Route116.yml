@@ -24,7 +24,7 @@ Location:
                 Code: |
                     Route116_EventScript_1B157E:: @ 81B157E
                         giveitem_std ITEMNAME, 1, 1
-                        end 
+                        end
             -
                 Name: Route 116 X Special
                 ScriptFileName: data/item_ball_scripts.inc
@@ -37,7 +37,7 @@ Location:
                 Code: |
                     Route116_EventScript_1B1564:: @ 81B1564
                         giveitem_std ITEMNAME, 1, 1
-                        end             -
+                        end
             -
                 Name: Route 116 Ether
                 ScriptFileName: data/item_ball_scripts.inc
@@ -88,19 +88,19 @@ Location:
                     Route116_EventScript_150A94:: @ 8150A94
                         setflag FLAG_MET_DEVON_EMPLOYEE
                         giveitem_std ITEMNAME
-                        compare RESULT, 0
+                        compare VAR_RESULT, 0
                         goto_if_eq Route116_EventScript_150B12
                         msgbox Route116_Text_1707B8, 4
                         closemessage
-                        compare FACING, 2
+                        compare VAR_FACING, 2
                         call_if_eq Route116_EventScript_150AEE
-                        compare FACING, 1
+                        compare VAR_FACING, 1
                         call_if_eq Route116_EventScript_150AEE
-                        compare FACING, 3
+                        compare VAR_FACING, 3
                         call_if_eq Route116_EventScript_150AEE
-                        compare FACING, 4
+                        compare VAR_FACING, 4
                         call_if_eq Route116_EventScript_150AF9
-                        removeobject LAST_TALKED
+                        removeobject VAR_LAST_TALKED
                         clearflag FLAG_HIDE_EMPLOYEE_DEVON_CORP_3F
                         setflag FLAG_RECEIVED_REPEAT_BALL
                         release
@@ -109,4 +109,4 @@ Location:
                     Route116_Text_17082A:: @ 817082A
                         .string "Your BAG is jam-packed.\n"
                         .string "I can't give you this ITEMNAME.$"
-                TrainerList:                 
+                TrainerList:

@@ -81,7 +81,7 @@ Location:
                         .string "If you come across large boulders\n"
                         .string "that block your path...\p"
                         .string "Well, use that HM move and smash\n"
-                        .string "it right out of your way!$
+                        .string "it right out of your way!$"
             -
                 Name: Basement Key
                 ScriptFileName: data/maps/MauvilleCity/scripts.inc
@@ -117,7 +117,7 @@ Location:
                         .string "The GENERATOR has been running a bit\n"
                         .string "haywire. It's getting unsafe.\p"
                         .string "Here, this is the ITEMNAME to get into NEW\n"
-                        .string "MAUVILLE.$"    
+                        .string "MAUVILLE.$"
             -
                 Name: Thunderbolt TM
                 ScriptFileName: data/maps/MauvilleCity/scripts.inc
@@ -144,7 +144,7 @@ Location:
                         .string "the right choice asking you!\p"
                         .string "This is my thanks - a TM containing\n"
                         .string "ITEMNAME!\p"
-                        .string "Go on, you've earned it!$"        
+                        .string "Go on, you've earned it!$"
             -
                 Name: Mauville X Speed
                 ScriptFileName: data/item_ball_scripts.inc
@@ -158,4 +158,4 @@ Location:
                     MauvilleCity_EventScript_1B171E:: @ 81B171E
                         giveitem_std ITEMNAME, 1, 1
                         end
-                TrainerList:                                
+                TrainerList:

@@ -16,7 +16,7 @@ Location:
         FlagReqs:
             - Dynamo Badge
         ItemReqs:
-            - Rock Smash            
+            - Rock Smash
         TrainerList:
         WildTableList:
             - MAP_RUSTURF_TUNNEL
@@ -37,10 +37,10 @@ Location:
         FlagReqs:
             - Dynamo Badge
         ItemReqs:
-            - Rock Smash            
+            - Rock Smash
         TrainerList:
         WildTableList: 
-        Sublocations:            
+        Sublocations:
     -
         Name: Rusturf Tunnel Left
         HasPKMN: No
@@ -58,7 +58,7 @@ Location:
                 ScriptFileName: data/maps/RusturfTunnel/scripts.inc
                 LocationReqs:
                     - Rusturf Tunnel Left
-                Code: |       
+                Code: |
                     RusturfTunnel_EventScript_15C9EA:: @ 815C9EA
                         lock
                         faceplayer
@@ -100,7 +100,7 @@ Location:
                         setvar VAR_BRINEY_HOUSE_STATE, 1
                         setflag FLAG_HIDE_BRINEY_ROUTE116
                         release
-                        end                        
+                        end
                 TrainerList:
                 WildTableList: 
                 Sublocations:
@@ -156,7 +156,7 @@ Location:
                         .string "That HM contains ITEMNAME.\p"
                         .string "If a muscular POKéMON were to learn\n"
                         .string "that, it would be able to move even\l"
-                        .string "large boulders.$"                           
+                        .string "large boulders.$"
             -
                 Name: Rusturf Tunnel Pokeball
                 ScriptFileName: data/item_ball_scripts.inc
@@ -195,4 +195,4 @@ Location:
                     RusturfTunnel_EventScript_1B1793:: @ 81B1793
                         giveitem_std ITEMNAME, 1, 1
                         end
-                TrainerList:        
+                TrainerList:

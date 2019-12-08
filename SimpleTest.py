@@ -15,7 +15,7 @@ Stone.Name = 'Stone Badge'
 Stone.Flag = 'FLAG_BADGE01_GET';
 Dynamo = Badge.Badge()
 Dynamo.isTrash = False
-Dynamo.Name = 'Stone Badge'
+Dynamo.Name = 'Dynamo Badge'
 Dynamo.Flag = 'FLAG_BADGE01_GET';
 BadgeDict = {'Stone Badge' : Stone, 'Dynamo Badge' : Dynamo}
 

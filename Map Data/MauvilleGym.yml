@@ -17,7 +17,7 @@ Location:
         Code: |
             MauvilleCity_Gym_EventScript_15661D:: @ 815661D
                 giveitem_std ITEMNAME
-                compare RESULT, 0
+                compare VAR_RESULT, 0
                 goto_if_eq MauvilleCity_Gym_EventScript_1A029B
                 msgbox MauvilleCity_Gym_Text_180E76, 4
                 setflag FLAG_RECEIVED_TM34

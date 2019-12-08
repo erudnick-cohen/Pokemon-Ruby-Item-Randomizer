@@ -1,10 +1,11 @@
 Location:
     -
         Name: Mauville City Gym Badge
-        FileName: data/maps/MauvilleCity_Gym/scripts.inc
+        ScriptFileName: data/maps/MauvilleCity_Gym/scripts.inc
         LocationReqs:
             - Mauville Gym TM
         Type: Gym
+        GymType: Electric
         HasPKMN: No
         WildTableList:
         FlagReqs:
@@ -25,7 +26,7 @@ Location:
                 addvar VAR_PETALBURG_GYM_STATE, 1
                 compare VAR_PETALBURG_GYM_STATE, 6
                 call_if_eq MauvilleCity_Gym_EventScript_1A00FB
-                setvar VAR_SPECIAL_8, 3
+                setvar VAR_0x8008, 3
                 call MauvilleCity_Gym_EventScript_1A01C0
                 special MauvilleGymSpecial3
                 special DrawWholeMapView
@@ -41,8 +42,8 @@ Location:
                         .string "{PLAYER} received the BADGENAME\n"
                         .string "from WATTSON.$"
                 File: data/maps/MauvilleCity_Gym/text.inc
-                Text: |        
-                     MauvilleCity_Gym_Text_180815:: @ 8180815
+                Text: |
+                    MauvilleCity_Gym_Text_180815:: @ 8180815
                         .string "Hey, how's it going, the CHAMPION-\n"
                         .string "bound {PLAYER}?\p"
                         .string "WATTSON, the LEADER of MAUVILLE\n"
@@ -51,12 +52,4 @@ Location:
                         .string "POKéMON, he'll zap them! Bzzt!\p"
                         .string "And, he's put in switch-controlled doors\n"
                         .string "all over his GYM! Eccentric!\p"
-                        .string "Hey, go for it!$"     
-            -
-                File: data/maps/RustboroCity/text.inc
-                Text: |        
-                    RustboroCity_Text_167439:: @ 8167439
-                        .string "RUSTBORO CITY POKéMON GYM\n"
-                        .string "LEADER: ROXANNE\p"
-                        .string ""The GYMTYPE-loving honors student!"$"                       
-                        
+                        .string "Hey, go for it!$"

@@ -26,12 +26,7 @@ def makeItemCodeDict():
 		if item not in itemCodeDict:
 			if item in keyItemMap:
 				item = keyItemMap[item]
-			if(isBall):
-				return "itemball "+item
-			elif not isSpecial:
-				return "verbosegiveitem "+item
-			else:
-				return item
+			return item
 		else:
 			return itemCodeDict[item]
 	return lookupItem

@@ -7,15 +7,15 @@ Location:
         NormalItem: ITEM_POTION
         Code: |
             OldaleTown_EventScript_14DE4C:: @ 814DE4C
-            msgbox OldaleTown_Text_16AF2F, 4
-            giveitem_std ITEMNAME
-            compare RESULT, 0
-            goto_if_eq OldaleTown_EventScript_14DE83
-            msgbox OldaleTown_Text_16AFE1, 4
-            setflag FLAG_RECEIVED_POTION_OLDALE
-            fadedefaultbgm
-            release
-            end
+                msgbox OldaleTown_Text_16AF2F, 4
+                giveitem_std ITEMNAME
+                compare VAR_RESULT, 0
+                goto_if_eq OldaleTown_EventScript_14DE83
+                msgbox OldaleTown_Text_16AFE1, 4
+                setflag FLAG_RECEIVED_POTION_OLDALE
+                fadedefaultbgm
+                release
+                end
         Text: |
             OldaleTown_Text_16AFE1:: @ 816AFE1
                 .string "A ITEMNAME can be used anytime, so it's\n"

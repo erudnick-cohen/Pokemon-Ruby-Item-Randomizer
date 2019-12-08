@@ -42,7 +42,7 @@ Location:
                 Code: |
                     Route117_EventScript_1B1598:: @ 81B1598
                         giveitem_std ITEMNAME, 1, 1
-                        end 
+                        end
             -
                 Name: Route 117 Revive
                 ScriptFileName: data/item_ball_scripts.inc
@@ -56,4 +56,4 @@ Location:
                 Code: |
                     Route117_EventScript_1B15A5:: @ 81B15A5
                         giveitem_std ITEMNAME, 1, 1
-                        end 
+                        end

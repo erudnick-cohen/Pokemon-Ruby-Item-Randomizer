@@ -5,6 +5,7 @@ import os
 import time
 import yaml
 import copy
+import io
 
 def ResetRom():
 	try:
@@ -22,32 +23,35 @@ def WriteLocationToRom(location, itemScriptLookup, itemTextLookup):
 	
 	#constuct new script that gives the new item
 	#replace is technically deprecated, but this is more readable
-	newcode = location.Code.replace("ITEMLINE",itemScriptLookup(location.item,location.IsBall,location.IsSpecial))
+	newcode = location.Code.replace("ITEMNAME",itemScriptLookup(location.item,location.IsBall,location.IsSpecial))
 	#switch spaces to tabs.....
 	newcode = newcode.replace("    ","\t")
+	#print(newcode)
 
 	#find the code we need to replace
-	coderegexstr = re.escape(location.Code.replace("    ","\t")).replace("ITEMLINE",".+")
+	#coderegexstr = re.escape(location.Code.replace("    ","\t")).replace("ITEMNAME",".+")
+	coderegexstr = re.escape(location.Code.replace("    ","\t")).replace("ITEMNAME",".+")
+	print(repr(filecode))
+	print(repr(coderegexstr))
 	oldcode = re.findall(coderegexstr,filecode)[0]
 	
 	#make new file with the new text
 	newfile = filecode.replace(oldcode,newcode)
 	
 	#write the new file into the files for the randomizer rom
-	newfilestream = open("Randomizer Rom/maps/"+location.FileName,'w')
+	newfilestream = open("Randomizer Rom/"+location.ScriptFileName,'w')
 	newfilestream.seek(0)
 	newfilestream.write(newfile)
 	newfilestream.truncate()
 	newfilestream.flush()
 	#os.fsync(newfilestream.fileno())
 	newfilestream.close()
-	
-	#next, write the text file
-	#open the relevant file and get it as a string
-	file = open("Randomizer Rom/"+location.TextFileName)
-	filecode = file.read()
-	newtext = ""
 	if location.Text is not None: 
+		#next, write the text file
+		#open the relevant file and get it as a string
+		file = open("Randomizer Rom/"+location.TextFileName,encoding = 'utf8')
+		filecode = file.read()
+		newtext = ""
 		#construct a new script that updates text about the new item
 		newtext = location.Text.replace("ITEMNAME",itemTextLookup(location.item))
 		#switch spaces to tabs.....
@@ -55,41 +59,42 @@ def WriteLocationToRom(location, itemScriptLookup, itemTextLookup):
 		
 		#find the text we need to replace
 		textregexstr = re.escape(location.Text.replace("    ","\t")).replace("ITEMNAME",".+")
+		#print(repr(filecode))
+		#print(repr(textregexstr))
+		
 		oldtext = re.findall(textregexstr,filecode)[0]
-	else:
-		oldtext = ""
-	
-	#make new file with the new text
-	newfile = filecode.replace(oldcode,newcode).replace(oldtext,newtext)
-	
-	#write the new file into the files for the randomizer rom
-	newfilestream = open("RandomizerRom/maps/"+location.FileName,'w')
-	newfilestream.seek(0)
-	newfilestream.write(newfile)
-	newfilestream.truncate()
-	newfilestream.flush()
-	#os.fsync(newfilestream.fileno())
-	newfilestream.close()
+		#make new file with the new text
+		newfile = filecode.replace(oldcode,newcode).replace(oldtext,newtext)
+		
+		#write the new file into the files for the randomizer rom
+		newfilestream = open("Randomizer Rom/"+location.TextFileName,'w',encoding = 'utf8')
+		newfilestream.seek(0)
+		newfilestream.write(newfile)
+		newfilestream.truncate()
+		newfilestream.flush()
+		#os.fsync(newfilestream.fileno())
+		newfilestream.close()
 
+#TODO: IMPLEMENT BADGE LOOKUP, THEY JUST NUMBER THEM IN CODE!!!!!!!
 def WriteBadgeToRom(location):
 	print("Writing "+location.Name+" which contains "+location.badge.Name)
 	
 	#open the relevant file and get it as a string
-	file = open("Randomizer Rom/maps/"+location.FileName)
+	file = open("Randomizer Rom/"+location.ScriptFileName)
 	filecode = file.read()
 	newfile = filecode
 	#constuct new script that gives the new item
 	#replace is technically deprecated, but this is more readable
 	
-	newcode = location.Code.replace("BADGELINE","ENGINE_"+location.badge.Name.replace(" ","").upper())
+	newcode = location.Code.replace("BADGEFLAG",location.badge.Flag)
 	#switch spaces to tabs.....
 	newcode = newcode.replace("    ","\t")
 	#find the code we need to replace
-	coderegexstr = re.escape(location.Code.replace("    ","\t")).replace("BADGELINE",".+")
+	coderegexstr = re.escape(location.Code.replace("    ","\t")).replace("BADGEFLAG",".+")
 	oldcode = re.findall(coderegexstr,filecode)[0]
 	newfile = filecode.replace(oldcode,newcode)
 	#write the new file into the files for the randomizer rom
-	newfilestream = open("RandomizerRom/maps/"+location.FileName,'w')
+	newfilestream = open("Randomizer Rom/"+location.ScriptFileName,'w')
 	newfilestream.seek(0)
 	newfilestream.write(newfile)
 	newfilestream.truncate()
@@ -100,18 +105,19 @@ def WriteBadgeToRom(location):
 	newtext = ""
 	if location.Text is not None: 
 		for i in location.Text:
-			file = open("RandomizerRom/maps/"+i["File"])
+			file = open("Randomizer Rom/"+i["File"],encoding = 'utf8')
 			filecode = file.read()
 			newfile = filecode
 			#construct a new script that updates text about the new item
-			newtext = i['Text'].replace("BADGENAME",location.badge.Name.upper())
+			newtext = i['Text'].replace("BADGENAME",location.badge.Name.upper()).replace("GYMTYPE",location.GymType)
 			#switch spaces to tabs.....
 			newtext = newtext.replace("    ","\t")
 			#find the text we need to replace
-			textregexstr = re.escape(i['Text'].replace("    ","\t")).replace("BADGENAME",".+")
+			textregexstr = re.escape(i['Text'].replace("    ","\t")).replace("BADGENAME",".+").replace("GYMTYPE",".+")
+			#print(textregexstr)
 			oldtext = re.findall(textregexstr,filecode)[0]
 			newfile = newfile.replace(oldtext,newtext)
-			newfilestream = open("RandomizerRom/maps/"+i["File"],'w')
+			newfilestream = open("Randomizer Rom/"+i["File"],'w',encoding = 'utf8')
 			newfilestream.seek(0)
 			newfilestream.write(newfile)
 			newfilestream.truncate()
@@ -120,17 +126,17 @@ def WriteBadgeToRom(location):
 			newfilestream.close()
 			
 	
-	#make new file with the new text
-	newfile = filecode.replace(oldcode,newcode).replace(oldtext,newtext)
+	# #make new file with the new text
+	# newfile = filecode.replace(oldcode,newcode).replace(oldtext,newtext)
 	
-	#write the new file into the files for the randomizer rom
-	newfilestream = open("RandomizerRom/maps/"+location.FileName,'w')
-	newfilestream.seek(0)
-	newfilestream.write(newfile)
-	newfilestream.truncate()
-	newfilestream.flush()
-	os.fsync(newfilestream.fileno())
-	newfilestream.close()
+	# #write the new file into the files for the randomizer rom
+	# newfilestream = open("RandomizerRom/maps/"+location.FileName,'w')
+	# newfilestream.seek(0)
+	# newfilestream.write(newfile)
+	# newfilestream.truncate()
+	# newfilestream.flush()
+	# os.fsync(newfilestream.fileno())
+	# newfilestream.close()
 	
 	
 def WriteItemLocations(locations):

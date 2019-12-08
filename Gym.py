@@ -5,6 +5,7 @@ class Gym(Location.Location):
 		self.badge = None
 		self.NormalBadge = yamlTree["NormalBadge"]
 		self.Code = yamlTree["BadgeLine"]
+		self.GymType = yamlTree['GymType']
 	#return if this is a gym or not
 	#This is the gym class
 	def isGym(self):
