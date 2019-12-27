@@ -9,16 +9,16 @@ import io
 
 def ResetRom():
 	try:
-		shutil.rmtree("Randomizer Rom")
+		shutil.rmtree("RandomizerBuild")
 	except:
 		print("No existing folder created, nothing to remove")
-	shutil.copytree("pokeruby-item-randomizer","Randomizer Rom")
+	shutil.copytree("pokeruby-item-randomizer","RandomizerBuild")
 
 
 def WriteLocationToRom(location, itemScriptLookup, itemTextLookup):
 	print("Writing "+location.Name+" which contains "+location.item)
 	#open the relevant file and get it as a string
-	file = open("Randomizer Rom/"+location.ScriptFileName)
+	file = open("RandomizerBuild/"+location.ScriptFileName)
 	filecode = file.read()
 	
 	#constuct new script that gives the new item
@@ -39,7 +39,7 @@ def WriteLocationToRom(location, itemScriptLookup, itemTextLookup):
 	newfile = filecode.replace(oldcode,newcode)
 	
 	#write the new file into the files for the randomizer rom
-	newfilestream = open("Randomizer Rom/"+location.ScriptFileName,'w')
+	newfilestream = open("RandomizerBuild/"+location.ScriptFileName,'w')
 	newfilestream.seek(0)
 	newfilestream.write(newfile)
 	newfilestream.truncate()
@@ -49,7 +49,7 @@ def WriteLocationToRom(location, itemScriptLookup, itemTextLookup):
 	if location.Text is not None: 
 		#next, write the text file
 		#open the relevant file and get it as a string
-		file = open("Randomizer Rom/"+location.TextFileName,encoding = 'utf8')
+		file = open("RandomizerBuild/"+location.TextFileName,encoding = 'utf8')
 		filecode = file.read()
 		newtext = ""
 		#construct a new script that updates text about the new item
@@ -67,7 +67,7 @@ def WriteLocationToRom(location, itemScriptLookup, itemTextLookup):
 		newfile = filecode.replace(oldcode,newcode).replace(oldtext,newtext)
 		
 		#write the new file into the files for the randomizer rom
-		newfilestream = open("Randomizer Rom/"+location.TextFileName,'w',encoding = 'utf8')
+		newfilestream = open("RandomizerBuild/"+location.TextFileName,'w',encoding = 'utf8')
 		newfilestream.seek(0)
 		newfilestream.write(newfile)
 		newfilestream.truncate()
@@ -80,7 +80,7 @@ def WriteBadgeToRom(location):
 	print("Writing "+location.Name+" which contains "+location.badge.Name)
 	
 	#open the relevant file and get it as a string
-	file = open("Randomizer Rom/"+location.ScriptFileName)
+	file = open("RandomizerBuild/"+location.ScriptFileName)
 	filecode = file.read()
 	newfile = filecode
 	#constuct new script that gives the new item
@@ -94,7 +94,7 @@ def WriteBadgeToRom(location):
 	oldcode = re.findall(coderegexstr,filecode)[0]
 	newfile = filecode.replace(oldcode,newcode)
 	#write the new file into the files for the randomizer rom
-	newfilestream = open("Randomizer Rom/"+location.ScriptFileName,'w')
+	newfilestream = open("RandomizerBuild/"+location.ScriptFileName,'w')
 	newfilestream.seek(0)
 	newfilestream.write(newfile)
 	newfilestream.truncate()
@@ -105,7 +105,7 @@ def WriteBadgeToRom(location):
 	newtext = ""
 	if location.Text is not None: 
 		for i in location.Text:
-			file = open("Randomizer Rom/"+i["File"],encoding = 'utf8')
+			file = open("RandomizerBuild/"+i["File"],encoding = 'utf8')
 			filecode = file.read()
 			newfile = filecode
 			#construct a new script that updates text about the new item
@@ -117,7 +117,7 @@ def WriteBadgeToRom(location):
 			#print(textregexstr)
 			oldtext = re.findall(textregexstr,filecode)[0]
 			newfile = newfile.replace(oldtext,newtext)
-			newfilestream = open("Randomizer Rom/"+i["File"],'w',encoding = 'utf8')
+			newfilestream = open("RandomizerBuild/"+i["File"],'w',encoding = 'utf8')
 			newfilestream.seek(0)
 			newfilestream.write(newfile)
 			newfilestream.truncate()
