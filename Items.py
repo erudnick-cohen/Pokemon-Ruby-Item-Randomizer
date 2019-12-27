@@ -2,7 +2,7 @@ import yaml
 
 def makeItemCodeDict():
 	#hardcoding key item lookups for now, pass as parameter in future
-	keyItemMap = {'Surf':'HM_SURF', 'Squirtbottle':"SQUIRTBOTTLE", 'Flash':'HM_FLASH', 'Mystery Egg':'MYSTERY_EGG', 'Cut':'HM_CUT','Strength': 'HM_STRENGTH','Secret Potion':'SECRETPOTION', 'Red Scale':'RED_SCALE','Whirlpool': 'HM_WHIRLPOOL', 'Card Key': 'CARD_KEY', 'Basement Key':'BASEMENT_KEY', 'Waterfall':'HM_WATERFALL','S S Ticket':'S_S_TICKET', 'Machine Part': 'MACHINE_PART','Lost Item':'LOST_ITEM','Bicycle':'BICYCLE'}
+	keyItemMap = {'Rock Smash': 'ITEM_HM06_ROCK_SMASH','Surf': 'ITEM_HM03_SURF','Cut':'ITEM_HM01_CUT', 'Strength':'ITEM_HM04_STRENGTH', 'Letter':'ITEM_LETTER', 'Devon Goods':'ITEM_DEVON_GOODS', 'Basement Key':'ITEM_BASEMENT_KEY'}
 	itemCodeDict = {}
 	
 	#progress items
