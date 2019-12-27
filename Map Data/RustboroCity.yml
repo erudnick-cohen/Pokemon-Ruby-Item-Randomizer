@@ -71,6 +71,50 @@ Location:
                         .string "He made his POKéMON use ITEMNAME to clear\n"
                         .string "the land of trees.$"
             -
+                Name: Quick Claw
+                ScriptFileName: data/maps/RustboroCity_PokemonSchool/scripts.inc 
+                TextFileName: data/maps/RustboroCity_PokemonSchool/text.inc
+                Type: Item
+                NormalItem: ITEM_QUICK_CLAW
+                FlagReqs:
+                LocationReqs:
+                    - Rustboro City
+                Code: |
+                    RustboroCity_PokemonSchool_EventScript_157ACE:: @ 8157ACE
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_QUICK_CLAW, RustboroCity_PokemonSchool_EventScript_157B34
+                        compare VAR_FACING, 4
+                        call_if_eq RustboroCity_PokemonSchool_EventScript_157B1E
+                        compare VAR_FACING, 3
+                        call_if_eq RustboroCity_PokemonSchool_EventScript_157B29
+                        msgbox RustboroCity_PokemonSchool_Text_1846A2, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq RustboroCity_PokemonSchool_EventScript_1A029B
+                        closemessage
+                        applymovement VAR_LAST_TALKED, RustboroCity_PokemonSchool_Movement_1A0845
+                        waitmovement 0
+                        setflag FLAG_RECEIVED_QUICK_CLAW
+                        release
+                        end
+                Text: |
+                    RustboroCity_PokemonSchool_Text_1846A2:: @ 81846A2
+                        .string "Students who don't study get a little\n"
+                        .string "taste of my ITEMNAME.\p"
+                        .string "Whether or not you are a good student \n"
+                        .string "will be evident from the way you use\l"
+                        .string "this item.$"
+
+                    RustboroCity_PokemonSchool_Text_184737:: @ 8184737
+                        .string "A POKéMON holding the ITEMNAME will\n"
+                        .string "occasionally speed up and get to move\l"
+                        .string "before its opponent.\p"
+                        .string "There are many other items that are\n"
+                        .string "meant to be held by POKéMON.\p"
+                        .string "Just those alone will give you many\n"
+                        .string "topics to study!$"
+            -
                 Name: Devon Goods Great Ball
                 ScriptFileName: data/maps/RustboroCity/scripts.inc
                 TextFileName: data/maps/RustboroCity/text.inc
