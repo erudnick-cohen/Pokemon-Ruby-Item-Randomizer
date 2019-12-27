@@ -16,7 +16,7 @@ Stone.Flag = 'FLAG_BADGE01_GET';
 Dynamo = Badge.Badge()
 Dynamo.isTrash = False
 Dynamo.Name = 'Dynamo Badge'
-Dynamo.Flag = 'FLAG_BADGE01_GET';
+Dynamo.Flag = 'FLAG_BADGE03_GET';
 BadgeDict = {'Stone Badge' : Stone, 'Dynamo Badge' : Dynamo}
 
 result = RandomizeItems.RandomizeItems('None',LocationList,progressItems,trashItems,BadgeDict,inputFlags = ['Kanto Mode'])
