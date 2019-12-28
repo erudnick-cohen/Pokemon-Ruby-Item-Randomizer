@@ -5,6 +5,8 @@ Location:
         TextFileName: data/maps/OldaleTown/text.inc
         Type: Item
         NormalItem: ITEM_POTION
+        LocationReqs:
+            - Route 101
         Code: |
             OldaleTown_EventScript_14DE4C:: @ 814DE4C
                 msgbox OldaleTown_Text_16AF2F, 4

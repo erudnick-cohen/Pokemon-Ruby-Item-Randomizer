@@ -2,6 +2,8 @@ Location:
     -
         Name: Route 103
         HasPKMN: Yes
+        LocationReqs:
+            - Oldale Town Potion
         FlagsSet:
             - Rival 1 Beaten
         TrainerList:

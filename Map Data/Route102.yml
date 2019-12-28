@@ -2,6 +2,8 @@ Location:
     -
         Name: Route 102
         HasPKMN: Yes
+        LocationReqs:
+            - Oldale Town Potion
         FlagReqs:
             - Rival 1 Beaten
         TrainerList:
