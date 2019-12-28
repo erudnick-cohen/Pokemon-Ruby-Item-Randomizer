@@ -89,6 +89,7 @@ Location:
                 Type: Item
                 LocationReqs:
                     - Mauville City
+                    - Petalburg City Gym
                 Code: |
                     MauvilleCity_EventScript_14C2F2:: @ 814C2F2
                         lock
