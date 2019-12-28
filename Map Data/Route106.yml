@@ -1,0 +1,29 @@
+Location:
+    -
+        Name: Route 106
+        LocationReqs:
+            - Dewford Town
+        WildTableList: 
+            - MAP_ROUTE106
+        TrainerList:
+            - Ned
+            - Elliot 1
+        Sublocations:
+            -
+                Name: Route 106 Protein
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                FlagReqs:
+                LocationReqs:
+                    - Route 106
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+                NormalItem: ITEM_PROTEIN
+                Code: |
+                    Route106_EventScript_1B1494:: @ 81B1494
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+
+
