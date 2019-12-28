@@ -124,6 +124,9 @@ Location:
                 NormalItem: ITEM_GREAT_BALL
                 Code: |
                     RustboroCity_EventScript_14C77D:: @ 814C77D
+                        checkitem ITEM_DEVON_GOODS, 1
+                        compare VAR_RESULT, 0
+                        goto_if_eq SkipTheRest
                         compare VAR_TEMP_1, 0
                         call_if_eq RustboroCity_EventScript_14C7FE
                         compare VAR_TEMP_1, 1
@@ -227,9 +230,10 @@ Location:
                         .string "to STEVEN in DEWFORD.$"
             -
                 Name: Mr. Stone's Exp. Share
-                ScriptFileName: maps/RustboroCity_DevonCorp_3F/scripts.inc
-                TextFileName: maps/RustboroCity_DevonCorp_3F/text.inc
+                ScriptFileName: data/maps/RustboroCity_DevonCorp_3F/scripts.inc
+                TextFileName: data/maps/RustboroCity_DevonCorp_3F/text.inc
                 Type: Item
+                NormalItem: ITEM_EXP_SHARE
                 LocationReqs:
                     - Devon Goods Great Ball
                 FlagReqs:
@@ -237,13 +241,13 @@ Location:
                 Code: |
                     RustboroCity_DevonCorp_3F_EventScript_157864:: @ 8157864
                         msgbox RustboroCity_DevonCorp_3F_Text_18353E, 4
-                        giveitem_std ITEM_EXP_SHARE
-                        compare RESULT, 0
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
                         goto_if_eq RustboroCity_DevonCorp_3F_EventScript_1A029B
                         setflag FLAG_RECEIVED_EXP_SHARE
                         msgbox RustboroCity_DevonCorp_3F_Text_1835B3, 4
                         closemessage
-                        applymovement LAST_TALKED, RustboroCity_DevonCorp_3F_Movement_1A083D
+                        applymovement VAR_LAST_TALKED, RustboroCity_DevonCorp_3F_Movement_1A083D
                         waitmovement 0
                         release
                         end
