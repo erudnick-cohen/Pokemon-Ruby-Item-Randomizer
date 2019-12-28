@@ -68,39 +68,6 @@ Location:
                         msgbox RusturfTunnel_Text_194274, 4
                         giveitem_std ITEMNAME
                         closemessage
-                        applymovement 255, RusturfTunnel_Movement_15CA99
-                        applymovement 6, RusturfTunnel_Movement_15CAA2
-                        waitmovement 0
-                        removeobject 6
-                        delay 50
-                        addobject 5
-                        applymovement 5, RusturfTunnel_Movement_15CAAC
-                        waitmovement 0
-                        applymovement 255, RusturfTunnel_Movement_15CA9F
-                        applymovement 5, RusturfTunnel_Movement_15CAC0
-                        waitmovement 0
-                        msgbox RusturfTunnel_Text_19432A, 4
-                        applymovement 5, RusturfTunnel_Movement_1A0839
-                        waitmovement 0
-                        message RusturfTunnel_Text_19434F
-                        waitmessage
-                        waitse
-                        playmoncry SPECIES_WINGULL, 0
-                        waitbuttonpress
-                        waitmoncry
-                        closemessage
-                        applymovement 5, RusturfTunnel_Movement_15CAB4
-                        applymovement 7, RusturfTunnel_Movement_15CAC3
-                        waitmovement 0
-                        removeobject 5
-                        removeobject 7
-                        clearflag FLAG_DEVON_GOODS_STOLEN
-                        setflag FLAG_RECOVERED_DEVON_GOODS
-                        setvar VAR_RUSTBORO_STATE, 4
-                        setvar VAR_BRINEY_HOUSE_STATE, 1
-                        setflag FLAG_HIDE_BRINEY_ROUTE116
-                        release
-                        end
                 TrainerList:
                 WildTableList: 
                 Sublocations:
