@@ -6,7 +6,7 @@ Location:
         HasPKMN: Yes
         Type: Item
         LocationReqs:
-            - Rustboro City
+            - Dewford Town
         TrainerList:
              - Laura
              - Hideki
