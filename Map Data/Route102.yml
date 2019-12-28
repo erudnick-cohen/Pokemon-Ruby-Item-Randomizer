@@ -11,12 +11,3 @@ Location:
              - Allen
         WildTableList: 
             - MAP_ROUTE102
-        Sublocations:
-            -
-                Name: Route 102 Water
-                WildTableList: 
-                    - Route102_WaterMons 
-                FlagReqs:
-                    - Balance Badge
-                ItemReqs:
-                    - Surf

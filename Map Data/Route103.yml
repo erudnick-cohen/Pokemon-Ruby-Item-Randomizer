@@ -27,11 +27,3 @@ Location:
                     Route102_EventScript_1B1439:: @ 81B1439
                         giveitem_std ITEMNAME, 1, 1
                         end
-            -
-                Name: Route 103 Water
-                WildTableList: 
-                    - Route103_WaterMons 
-                FlagReqs:
-                    - Balance Badge
-                ItemReqs:
-                    - Surf
