@@ -1,0 +1,30 @@
+Location:
+    -
+        Name: Dewford Gym TM
+        ScriptFileName: data/maps/DewfordTown_Gym/scripts.inc
+        TextFileName: data/maps/DewfordTown_Gym/text.inc
+        HasPKMN: Yes
+        Type: Item
+        LocationReqs:
+            - Rustboro City
+        TrainerList:
+             - Laura
+             - Hideki
+             - Brawly
+             - Tessa
+        NormalItem: ITEM_TM08_BULK_UP
+        Code: |
+            DewfordTown_Gym_EventScript_1531B5:: @ 81531B5
+                giveitem_std ITEMNAME
+                compare VAR_RESULT, 0
+                goto_if_eq DewfordTown_Gym_EventScript_1A029B
+                msgbox DewfordTown_Gym_Text_1753BF, 4
+                setflag FLAG_RECEIVED_TM08
+                release
+                end
+        Text: |
+            DewfordTown_Gym_Text_1753BF:: @ 81753BF
+                .string "That TM08 contains ITEMNAME.\p"
+                .string "It's a move that raises both ATTACK\n"
+                .string "and DEFENSE stats.$"
+        Sublocations:

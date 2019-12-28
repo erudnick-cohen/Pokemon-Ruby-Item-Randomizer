@@ -1,0 +1,141 @@
+Location:
+    -
+        Name: Dewford Town
+        LocationReqs:
+            - Devon Goods Grunt
+        Sublocations:
+            -
+                Name: Sludge Bomb TM
+                ScriptFileName: data/maps/DewfordTown_Hall/scripts.inc
+                TextFileName: data/maps/DewfordTown_Hall/scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Dewford Town
+                    - Petalburg City Gym
+                WildTableList: 
+                NormalItem: ITEM_TM36_SLUDGE_BOMB
+                Code: |
+                    DewfordTown_Hall_EventScript_15359D:: @ 815359D
+                        lock
+                        faceplayer
+                        call DewfordTown_Hall_EventScript_1A0102
+                        goto_if_set FLAG_RECEIVED_TM36, DewfordTown_Hall_EventScript_1535D1
+                        msgbox DewfordTown_Hall_Text_175E13, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq DewfordTown_Hall_EventScript_1A029B
+                        setflag FLAG_RECEIVED_TM36
+                        release
+                        end
+                Text: |
+                    DewfordTown_Hall_Text_175E13:: @ 8175E13
+                        .string "For me, ITEMNAME is at the peak\n"
+                        .string "of popularity. It's the one.\p"
+                        .string "Hunh? You're telling me that you don't\n"
+                        .string "know about ITEMNAME?\p"
+                        .string "That's outright pitiful.\n"
+                        .string "I'll give you one.$"
+
+                    DewfordTown_Hall_Text_175EBE:: @ 8175EBE
+                        .string "I love ITEMNAME.\p"
+                        .string "But POKéMON with the\n"
+                        .string "“{STR_VAR_1}”\l"
+                        .string "move are in, too.$"
+            -
+                Name: Silk Scarf
+                ScriptFileName: data/maps/DewfordTown_House2/scripts.inc 
+                TextFileName: data/maps/DewfordTown_House2/text.inc 
+                Type: Item
+                LocationReqs:
+                    - Dewford Town
+                NormalItem: ITEM_SILK_SCARF
+                Code: |
+                    DewfordTown_House2_EventScript_1535DC:: @ 81535DC
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_SILK_SCARF, DewfordTown_House2_EventScript_153615
+                        msgbox DewfordTown_House2_Text_175EFE, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq DewfordTown_House2_EventScript_15360B
+                        setflag FLAG_RECEIVED_SILK_SCARF
+                        release
+                        end
+                Text: |
+                    DewfordTown_House2_Text_175EFE:: @ 8175EFE
+                        .string "Gorge your eyes on this!\p"
+                        .string "It's a ITEMNAME. It's right at the\n"
+                        .string "cutting edge of fashion, yeah!\p"
+                        .string "Oh, I can see your eyes twinkling!\n"
+                        .string "You appreciate my dazzling style!\p"
+                        .string "Oh, you're a delight!\n"
+                        .string "Here you go. I want you to have it!$"
+
+                    DewfordTown_House2_Text_175FDA:: @ 8175FDA
+                        .string "Oh, you don't have room?\p"
+                        .string "Now, listen tight, this ITEMNAME is a must-\n"
+                        .string "have! Why, I would sell all my items\l"
+                        .string "in order to get it!$"
+
+                    DewfordTown_House2_Text_176055:: @ 8176055
+                        .string "The ITEMNAME raises the power of\n"
+                        .string "NORMAL-type moves.\p"
+                        .string "It's a marvelous ITEMNAME that will go\n"
+                        .string "with almost all POKéMON!$"
+            -
+                Name: Old Rod
+                ScriptFileName: data/maps/DewfordTown/scripts.inc 
+                TextFileName: data/maps/DewfordTown/text.inc 
+                Type: Item
+                LocationReqs:
+                    - Dewford Town
+                NormalItem: ITEM_OLD_ROD
+                Code: |
+                    DewfordTown_EventScript_14E0F0:: @ 814E0F0
+                        msgbox DewfordTown_Text_16B6A8, 4
+                        giveitem_std ITEMNAME
+                        setflag FLAG_RECEIVED_OLD_ROD
+                        msgbox DewfordTown_Text_16B6F9, 4
+                        release
+                        end
+                Text: |
+                    DewfordTown_Text_16B6A8:: @ 816B6A8
+                        .string "I hear you, and I like what\n"
+                        .string "you're saying!\p"
+                        .string "I'll give you one of my fishing ITEMNAMES.$"
+
+                    DewfordTown_Text_16B6F9:: @ 816B6F9
+                        .string "And, as an added bonus, I'll even throw\n"
+                        .string "in a little fishing advice!\p"
+                        .string "First, you want to face the water,\n"
+                        .string "then use the ROD.\p"
+                        .string "Focus your mind...\n"
+                        .string "If you get a bite, pull on the ITEMNAME.\p"
+                        .string "Sometimes you can snag something\n"
+                        .string "immediately, but with bigger catches,\l"
+                        .string "you need to time the pulls on your ITEMNAME\l"
+                        .string "to haul them in.$"
+
+                    DewfordTown_Text_16B828:: @ 816B828
+                        .string "Oh, is that so?\n"
+                        .string "That's too bad, then.$"
+
+                    DewfordTown_Text_16B84E:: @ 816B84E
+                        .string "Yo!\n"
+                        .string "How's your fishing?$"
+
+                    DewfordTown_Text_16B866:: @ 816B866
+                        .string "Is that right! That's great!\n"
+                        .string "Haul in some big ones!$"
+
+                    DewfordTown_Text_16B89A:: @ 816B89A
+                        .string "Oh, hey, don't get down on yourself!\n"
+                        .string "I'll give you a little fishing advice.\p"
+                        .string "First, you want to face the water,\n"
+                        .string "then use the ITEMNAME.\p"
+                        .string "Focus your mind...\n"
+                        .string "If you get a bite, pull the ITEMNAME.\p"
+                        .string "Sometimes you can snag something\n"
+                        .string "immediately, but with bigger catches,\l"
+                        .string "you need to time the pulls on your ITEMNAME\l"
+                        .string "to haul them in.$"

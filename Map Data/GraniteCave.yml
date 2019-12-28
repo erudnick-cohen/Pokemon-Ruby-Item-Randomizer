@@ -1,0 +1,129 @@
+Location:
+    -
+        Name: Granite Cave
+        LocationReqs:
+            - Route 106
+        WildTableList: 
+            - MAP_ROUTE106
+        TrainerList:
+        Sublocations:
+            -
+                Name: Flash HM
+                Type: Item
+                FlagReqs:
+                HasPKMN: No
+                ScriptFileName: data/maps/GraniteCave_1F/scripts.inc
+                TextFileName: data/maps/GraniteCave_1F/text.inc
+                LocationReqs:
+                    - Granite Cave
+                Code: |
+                    GraniteCave_1F_EventScript_15CBA7:: @ 815CBA7
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_HM05, GraniteCave_1F_EventScript_15CBD3
+                        msgbox GraniteCave_1F_Text_194917, 4
+                        giveitem_std ITEMNAME
+                        setflag FLAG_RECEIVED_HM05
+                        msgbox GraniteCave_1F_Text_194A3E, 4
+                        release
+                        end
+                Text: |
+                    GraniteCave_1F_Text_194917:: @ 8194917
+                        .string "Hey, you.\n"
+                        .string "It gets awfully dark ahead.\l"
+                        .string "It'll be tough trying to explore.\p"
+                        .string "That guy who came by earlier...\n"
+                        .string "STEVEN, I think it was.\p"
+                        .string "He knew how to use ITEMNAME, so he ought\n"
+                        .string "to be all right, but...\p"
+                        .string "Well, for us HIKERS, helping out those\n"
+                        .string "that we meet is our motto.\p"
+                        .string "Here you go, I'll pass this on to you.$"
+
+                    GraniteCave_1F_Text_194A3E:: @ 8194A3E
+                        .string "Teach that hidden move ITEMNAME to a\n"
+                Sublocations:
+            -
+                Name: Granite Cave Inside
+                Type: Map
+                FlagReqs:
+                HasPKMN: Yes
+                LocationReqs:
+                    - Granite Cave
+                FlagReqs:
+                    - Flash
+                    - Knuckle Badge
+                WildTableList: 
+                    - MAP_GRANITE_CAVE_1F
+                    - MAP_GRANITE_CAVE_B1F
+                    - MAP_GRANITE_CAVE_B2F
+                Sublocations:
+                    -
+                        Name: Granite Cave Escape Rope
+                        ScriptFileName: data/item_ball_scripts.inc
+                        Type: Item
+                        LocationReqs: 
+                            - Granite Cave Inside
+                        FlagReqs:
+                            - Knuckle Badge
+                        ItemReqs:
+                            - Flash
+                        NormalItem: ITEM_ESCAPE_ROPE
+                        Code: |
+                            GraniteCave_1F_EventScript_1B17A0:: @ 81B17A0
+                                giveitem_std ITEMNAME, 1, 1
+                                end
+                    -
+                        Name: Steel Wing TM
+                        ScriptFileName: data/maps/GraniteCave_StevensRoom/scripts.inc
+                        TextFileName: data/maps/GraniteCave_StevensRoom/text.inc
+                        Type: Item
+                        LocationReqs: 
+                            - Granite Cave Inside
+                        FlagReqs:
+                            - Knuckle Badge
+                        FlagsSet:
+                            - Gave Steven Letter
+                        ItemReqs:
+                            - Flash
+                            - Letter
+                        NormalItem: ITEM_TM47_STEEL_WING
+                        Code: |
+                            GraniteCave_StevensRoom_EventScript_15CBFA:: @ 815CBFA
+                                lock
+                                faceplayer
+                                checkitem ITEM_LETTER, 0
+                                goto_if_eq GraniteCave_StevensRoom_EventScript_No_Letter
+                                msgbox GraniteCave_StevensRoom_Text_194AE5, 4
+                                setvar VAR_0x8004, ITEM_LETTER
+                                call GraniteCave_StevensRoom_EventScript_1A067F
+                                setflag FLAG_DELIVERED_STEVEN_LETTER
+                                msgbox GraniteCave_StevensRoom_Text_194BDD, 4
+                                giveitem_std ITEMNAME
+                                compare VAR_RESULT, 0
+                                call_if_eq GraniteCave_StevensRoom_EventScript_15CC83
+                                msgbox GraniteCave_StevensRoom_Text_194C8D, 4
+                                closemessage
+                                compare VAR_FACING, 2
+                                call_if_eq GraniteCave_StevensRoom_EventScript_15CC6D
+                                compare VAR_FACING, 1
+                                call_if_eq GraniteCave_StevensRoom_EventScript_15CC78
+                                compare VAR_FACING, 3
+                                call_if_eq GraniteCave_StevensRoom_EventScript_15CC6D
+                                compare VAR_FACING, 4
+                                call_if_eq GraniteCave_StevensRoom_EventScript_15CC6D
+                                playse SE_KAIDAN
+                                removeobject 1
+                                release
+                                end
+                        Text: |
+                            GraniteCave_StevensRoom_Text_194BDD:: @ 8194BDD
+                                .string "STEVEN: Okay, thank you.\p"
+                                .string "You went through all this trouble to\n"
+                                .string "deliver that. I need to thank you.\p"
+                                .string "Let me see...\n"
+                                .string "I'll give you this TM.\p"
+                                .string "It contains my favorite move,\n"
+                                .string "ITEMNAME.$"
+
+

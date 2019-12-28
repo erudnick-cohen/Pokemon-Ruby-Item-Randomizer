@@ -1,0 +1,100 @@
+Location:
+    -
+        Name: Route 109 Entrance
+        Type: Map
+        LocationReqs:
+            - Steel Wing TM
+    -
+        Name: Route 109 Entrance
+        Type: Map
+        FlagReqs:
+        ItemReqs:
+        LocationReqs:
+            - Route 109
+    -
+        Name: Route 109
+        Type: Map
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 109 Entrance
+        TrainerList:
+            - Huey
+            - Edmond
+            - Ricky 1
+            - Lola 1
+        Sublocations:
+            -
+                Name: Soft Sand
+                Type: Item
+                ScriptFileName: data/maps/Route109/scripts.inc
+                LocationReqs:
+                    - Route 109
+                NormalItem: ITEM_SOFT_SAND
+                Code: |
+                    Route109_EventScript_14F725:: @ 814F725
+                        lock
+                        faceplayer
+                        special GetPlayerBigGuyGirlString
+                        goto_if_set FLAG_RECEIVED_SOFT_SAND, Route109_EventScript_14F762
+                        msgbox Route109_Text_16E433, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq Route109_EventScript_1A029B
+                        closemessage
+                        applymovement VAR_LAST_TALKED, Route109_Movement_1A083D
+                        waitmovement 0
+                        setflag FLAG_RECEIVED_SOFT_SAND
+                        release
+                        end
+            -
+                Name: Seashore House Soda Pop
+                Type: Item
+                HasPKMN: Yes
+                ScriptFileName: data/maps/Route109_SeashoreHouse/scripts.inc
+                TextFileName: data/maps/Route109_SeashoreHouse/text.inc
+                LocationReqs:
+                    - Route 109
+                NormalItem: ITEM_SODA_POP
+                TrainerList:
+                    - Simon
+                    - Johanna
+                    - Dwayne 
+                Code: |
+                    Route109_SeashoreHouse_EventScript_160E08:: @ 8160E08
+                        msgbox Route109_SeashoreHouse_Text_19B609, 4
+                        giveitem_std ITEMNAME, 6
+                        compare VAR_RESULT, 0
+                        goto_if_eq Route109_SeashoreHouse_EventScript_160E2C
+                        setflag FLAG_RECEIVED_6_SODA_POP
+                        release
+                        end
+                Text: |
+                    Route109_SeashoreHouse_Text_19B609:: @ 819B609
+                        .string "You're scorching hot!\n"
+                        .string "Those battles blazed!\l"
+                        .string "I'm more than just satisfied!\p"
+                        .string "As thanks for showing me your hot\n"
+                        .string "streak, I want you to take these.\p"
+                        .string "It's half a dozen bottles of ITEMNAME!$"
+            -
+                Name: Route 109 PP Up
+                Type: Item
+                ScriptFileName: data/maps/Route109/scripts.inc
+                LocationReqs:
+                    - Route 109
+                ItemReqs:
+                    - Surf
+                FlagReqs:
+                    - Balance Badge
+                NormalItem: ITEM_PP_UP
+                TrainerList:
+                    - Gwen
+                    - Carmen
+                    - Alice
+                    - David
+                    - MelAndPaul
+                    - Carter
+                Code: |
+                    Route109_EventScript_1B14A1:: @ 81B14A1
+                        giveitem_std ITEMNAME, 1, 1
+                        end
