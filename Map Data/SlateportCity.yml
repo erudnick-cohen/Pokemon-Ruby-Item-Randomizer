@@ -78,6 +78,7 @@ Location:
                 TextFileName: data/maps/SlateportCity_Harbor/text.inc
                 LocationReqs:
                     - Slateport City
+                    - Mossdeep Gym TM
                 ItemReqs:
                     - Scanner
                 Code: |
