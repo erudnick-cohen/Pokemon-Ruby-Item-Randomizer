@@ -26,6 +26,50 @@ Location:
             - MAP_ROUTE113
         Sublocations:
             -
+                Name: Secret Power TM
+                ScriptFileName: data/scripts/secret_power_tm.inc
+                TextFileName: data/text/secret_power_tm.inc
+                LocationReqs: 
+                    - Route 113
+                Type: Item
+                FlagReqs:
+                NormalItem: ITEM_TM43_SECRET_POWER
+                Code: |
+                    Route111_EventScript_1A3877:: @ 81A3877
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq Route111_EventScript_1A38D9
+                        msgbox Route111_Text_1A35C5, 4
+                        closemessage
+                        setflag FLAG_RECEIVED_SECRET_POWER
+                        clearflag FLAG_HIDE_TM_SALESMAN_SLATEPORT
+                        compare VAR_FACING, 3
+                        call_if_eq Route111_EventScript_1A38C3
+                        compare VAR_FACING, 4
+                        call_if_eq Route111_EventScript_1A38C3
+                        compare VAR_FACING, 2
+                        call_if_eq Route111_EventScript_1A38CE
+                        removeobject VAR_LAST_TALKED
+                        release
+                Text: |
+                    Route111_Text_1A35C5:: @ 81A35C5
+                        .string "Find a big tree that looks like it might\n"
+                        .string "drop some vines.\p"
+                        .string "Use ITEMNAME in front of the tree.\n"
+                        .string "Some vines should get free and drop\l"
+                        .string "down, so you can climb the tree.\p"
+                        .string "You'll find a lot of space for putting\n"
+                        .string "your favorite things.\p"
+                        .string "It'll be your own secret room...\n"
+                        .string "A ITEMNAME BASE!\p"
+                        .string "You should make one, too.\p"
+                        .string "Another thing, you don't always have\n"
+                        .string "to make your ITEMNAME in a tree.\p"
+                        .string "Try using ITEMNAME on rock walls\n"
+                        .string "that have small indents in them.\p"
+                        .string "I'm going to look for other places, too.\n"
+                        .string "Okay, bye!$"
+            -
                 Name: Route 113 Super Repel
                 ScriptFileName: data/item_ball_scripts.inc
                 LocationReqs: 

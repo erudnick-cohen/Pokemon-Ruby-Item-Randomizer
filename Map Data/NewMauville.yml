@@ -1,0 +1,78 @@
+Location:
+    -
+        Name: New Mauville
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 110
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+        TrainerList:
+        WildTableList:
+            - MAP_NEW_MAUVILLE_ENTRANCE
+        Sublocations:
+            -
+                Name: Inner New Mauville
+                LocationReqs:
+                    - New Mauville
+                ItemReqs:
+                    - Basement Key
+                WildTableList:
+                    - MAP_NEW_MAUVILLE_INSIDE
+                Sublocations:
+                    -
+                        Name: New Mauville Paralyze Heal
+                        ScriptFileName: data/item_ball_scripts.inc
+                        Type: Item
+                        LocationReqs:
+                            - Inner New Mauville
+                        NormalItem: ITEM_PARALYZE_HEAL
+                        Code: |
+                            NewMauville_Inside_EventScript_1B1870:: @ 81B1870
+                                giveitem_std ITEMNAME, 1, 1
+                                end
+                    -
+                        Name: New Mauville Full Heal
+                        ScriptFileName: data/item_ball_scripts.inc
+                        Type: Item
+                        LocationReqs:
+                            - Inner New Mauville
+                        NormalItem: ITEM_FULL_HEAL
+                        Code: |
+                            NewMauville_Inside_EventScript_1B1863:: @ 81B1863
+                                giveitem_std ITEMNAME, 1, 1
+                                end
+                    -
+                        Name: New Mauville Paralyze Heal
+                        ScriptFileName: data/item_ball_scripts.inc
+                        Type: Item
+                        LocationReqs:
+                            - Inner New Mauville
+                        NormalItem: ITEM_THUNDER_STONE
+                        Code: |
+                            NewMauville_Inside_EventScript_1B1856:: @ 81B1856
+                                giveitem_std ITEMNAME, 1, 1
+                                end
+                    -
+                        Name: New Mauville Escape Rope
+                        ScriptFileName: data/item_ball_scripts.inc
+                        Type: Item
+                        LocationReqs:
+                            - Inner New Mauville
+                        NormalItem: ITEM_ESCAPE_ROPE
+                        Code: |
+                            NewMauville_Inside_EventScript_1B1849:: @ 81B1849
+                                giveitem_std ITEMNAME, 1, 1
+                                end
+                    -
+                        Name: New Mauville Ultra Ball
+                        ScriptFileName: data/item_ball_scripts.inc
+                        Type: Item
+                        LocationReqs:
+                            - Inner New Mauville
+                        NormalItem: ITEM_ULTRA_BALL
+                        Code: |
+                            NewMauville_Inside_EventScript_1B183C:: @ 81B183C
+                                giveitem_std ITEMNAME, 1, 1
+                                end

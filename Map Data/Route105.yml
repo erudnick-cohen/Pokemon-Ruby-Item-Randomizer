@@ -3,7 +3,7 @@ Location:
         Name: Route 105
         HasPKMN: Yes
         LocationReqs:
-            - Route 104
+            - Route 104 South
         FlagReqs:
             - Balance Badge
         ItemReqs:

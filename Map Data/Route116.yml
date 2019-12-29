@@ -79,10 +79,7 @@ Location:
                 Type: Item
                 LocationReqs:
                     - Route 116
-                FlagReqs:
-                    - Dynamo Badge
-                ItemReqs:
-                    - Rock Smash
+                    - Devon Goods Delivery
                 NormalItem: ITEM_REPEAT_BALL
                 Code: |
                     Route116_EventScript_150A94:: @ 8150A94
