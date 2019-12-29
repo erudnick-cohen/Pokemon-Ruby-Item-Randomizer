@@ -16,6 +16,7 @@ Location:
             -
                 Name: Meteorite Machine
                 ScriptFileName: data/maps/MtChimney/scripts.inc
+                TextFileName: data/maps/MtChimney/text.inc
                 LocationReqs: 
                     - Mt. Chimney
                 Type: Item
