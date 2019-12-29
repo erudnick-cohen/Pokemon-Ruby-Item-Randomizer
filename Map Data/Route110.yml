@@ -1,0 +1,114 @@
+Location:
+    -
+        Name: Route 110 Entrance
+        Type: Map
+        LocationReqs:
+            - Devon Goods Delivery
+    -
+        Name: Route 110 Entrance
+        Type: Map
+        FlagReqs:
+        ItemReqs:
+        LocationReqs:
+            - Route 103 Right Side
+    -
+        Name: Route 110 Entrance
+        Type: Map
+        FlagReqs:
+        ItemReqs:
+        LocationReqs:
+            - Mauville City
+    -
+        Name: Route 110
+        Type: Map
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 110 Entrance
+        WildTableList: 
+            - MAP_ROUTE110
+        TrainerList:
+             - May 2
+             - May 5
+             - May 8
+             - Brendan 2
+             - Brendan 5
+             - Brendan 8
+             - Isabel 1
+             - Timmy
+             - Edwin 1
+             - Edward
+             - Dale
+        Sublocations:
+            -
+                Name: Route 110 Dire Hit
+                Type: Item
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs:
+                    - Route 110
+                NormalItem: ITEM_DIRE_HIT
+                Code: |
+                    Route110_EventScript_1B14BB:: @ 81B14BB
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 110 Rare Candy
+                Type: Item
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs:
+                    - Route 110
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+                NormalItem: ITEM_RARE_CANDY
+                Code: |
+                    Route110_EventScript_1B14BB:: @ 81B14BB
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Itemfinder
+                Type: Item
+                ScriptFileName: data/maps/Route110/scripts.inc
+                TextFileName: data/maps/Route110/text.inc
+                LocationReqs:
+                    - Route 109
+                NormalItem: ITEM_ITEMFINDER
+                Code: |
+                    Route110_EventScript_14FEA5:: @ 814FEA5
+                        giveitem_std ITEMNAME
+                        return
+                Text: |
+                    Route110_Text_16E8B3:: @ 816E8B3
+                        .string "MAY: That's an ITEMNAME.\p"
+                        .string "Try it out. If there is an item that's\n"
+                        .string "not visible, it emits a sound.\p"
+                        .string "Okay, {PLAYER}{KUN}, let's meet again!\p"
+                        .string "I know it's a little silly coming from\n"
+                        .string "me, but I think you should train a lot\l"
+                        .string "harder for the next time.$"
+
+                    Route110_Text_16E99A:: @ 816E99A
+                        .string "BRENDAN: Hey, {PLAYER}.\n"
+                        .string "So this is where you were.\l"
+                        .string "How's it going?\p"
+                        .string "Have you been raising your POKéMON?\n"
+                        .string "I'll check for you.$"
+
+                    Route110_Text_16EA0F:: @ 816EA0F
+                        .string "Hmm...\n"
+                        .string "You're pretty good.$"
+
+                    Route110_Text_16EA2A:: @ 816EA2A
+                        .string "BRENDAN: {PLAYER}, you've trained\n"
+                        .string "without me noticing...\p"
+                        .string "Good enough!\n"
+                        .string "Here, take this.$"
+
+                    Route110_Text_16EA7B:: @ 816EA7B
+                        .string "BRENDAN: That's an ITEMNAME.\p"
+                        .string "Use it to root around for items that\n"
+                        .string "aren't visible.\p"
+                        .string "If it senses something, it emits a\n"
+                        .string "sound.\p"
+                        .string "Anyway, I'm off to look for new\n"
+                        .string "POKéMON.$"

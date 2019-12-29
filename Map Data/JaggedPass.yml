@@ -1,0 +1,22 @@
+Location:
+    -
+        Name: Jagged Pass
+        HasPKMN: Yes
+        LocationReqs:
+            - Mt. Chimney
+        TrainerList:
+             - Eric
+             - Ethan 1
+             - Diana 1
+        Sublocations:
+            -
+                Name: Jagged Pass Burn Heal
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Jagged Pass
+                Type: Item
+                NormalItem: ITEM_BURN_HEAL
+                Code: |
+                    JaggedPass_EventScript_1B17D4:: @ 81B17D4
+                        giveitem_std ITEMNAME, 1, 1
+                        end

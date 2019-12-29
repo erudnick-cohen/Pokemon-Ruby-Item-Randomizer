@@ -3,34 +3,28 @@ Location:
         Name: Route 105
         HasPKMN: Yes
         LocationReqs:
-            - Rustboro City
+            - Route 104
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
         TrainerList:
-             - Joey
-             - Jose
-             - Janice
-             - Clark
+             - Dawn
+             - Beverly
+             - Austin
+             - Foster
+             - Luis
         WildTableList: 
             - MAP_ROUTE105
         Sublocations:
             -
-                Name: Route 105 Repel
+                Name: Route 105 Iron
                 ScriptFileName: data/item_ball_scripts.inc
                 Type: Item
                 LocationReqs:
-                FlagReqs:
-                ItemReqs:
-                    - Cut
-                NormalItem: ITEM_POKE_BALL
+                    - Route 105
+                NormalItem: ITEM_IRON
                 Code: |
-                    Route104_EventScript_1B1460:: @ 81B1460
+                    Route105_EventScript_1B1487:: @ 81B1487
                         giveitem_std ITEMNAME, 1, 1
                         end
-            -
-                Name: Route 104 Water
-                WildTableList: 
-                    - Route104_WaterMons 
-                FlagReqs:
-                    - Balance Badge
-                ItemReqs:
-                    - Surf
-                       

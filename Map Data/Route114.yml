@@ -1,0 +1,123 @@
+Location:
+    -
+        Name: Route 114 Entrance
+        LocationReqs:
+            - Fallarbor Town
+    -
+        Name: Route 114 Entrance
+        LocationReqs:
+            - Meteor Falls
+    -
+        Name: Route 114
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 114 Entrance
+        TrainerList:
+             - Nolan
+             - Claude
+             - Nancy
+             - TyraAndIvy
+             - Shane
+             - Steve 1
+             - Bernie 1
+             - Lucas
+             - Lenny
+        WildTableList: 
+            - MAP_ROUTE114
+        Sublocations:
+            -
+                Name: Route 114 Protein
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 114
+                Type: Item
+                FlagReqs:
+                    - Dynamo Badge
+                ItemReqs:
+                    - Rock Smash
+                NormalItem: ITEM_PROTEIN
+                Code: |
+                    Route114_EventScript_1B1523:: @ 81B1523
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 114 Rare Candy
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 114
+                FlagReqs:
+                    - Rain Badge
+                    - Balance Badge
+                ItemReqs:
+                    - Waterfall
+                    - Surf
+                Type: Item
+                FlagReqs:
+                NormalItem: ITEM_RARE_CANDY
+                Code: |
+                    Route114_EventScript_1B1516:: @ 81B1516
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Roar TM
+                ScriptFileName: data/maps/Route114/scripts.inc
+                TextFileName: data/maps/Route114/text.inc
+                LocationReqs: 
+                    - Route 114
+                Type: Item
+                NormalItem: ITEM_TM05_ROAR
+                Code: |
+                    Route114_EventScript_150782:: @ 8150782
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_TM05, Route114_EventScript_1507B9
+                        msgbox Route114_Text_170154, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq Route114_EventScript_1A029B
+                        setflag FLAG_RECEIVED_TM05
+                        msgbox Route114_Text_1701C5, 4
+                        release
+                        end
+                Text: |
+                    Route114_Text_170154:: @ 8170154
+                        .string "All my POKéMON does is ITEMNAME...\n"
+                        .string "No one dares to come near me...\p"
+                        .string "Sigh... If you would, please take\n"
+                        .string "this TM away...$"
+
+                    Route114_Text_1701C5:: @ 81701C5
+                        .string "TM05 contains ITEMNAME.\n"
+                        .string "A ITEMNAME sends POKéMON scurrying.$"
+            -
+                Name: Dig TM
+                ScriptFileName: data/maps/Route114_FossilManiacsHouse/scripts.inc
+                TextFileName: data/maps/Route114_FossilManiacsHouse/text.inc
+                LocationReqs: 
+                    - Route 114
+                Type: Item
+                NormalItem: ITEM_TM28_DIG
+                Code: |
+                    Route114_FossilManiacsHouse_EventScript_15C1C3:: @ 815C1C3
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_TM28, Route114_FossilManiacsHouse_EventScript_15C1F2
+                        msgbox Route114_FossilManiacsHouse_Text_1925E1, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq Route114_FossilManiacsHouse_EventScript_1A029B
+                        setflag FLAG_RECEIVED_TM28
+                        release
+                        end
+                Text: |
+                    Route114_FossilManiacsHouse_Text_1925E1:: @ 81925E1
+                        .string "My big brother's the FOSSIL MANIAC...\n"
+                        .string "He's a nice guy who loves fossils...\p"
+                        .string "He loves digging holes, too...\n"
+                        .string "He dug this hole by himself...\p"
+                        .string "You can have this, so you can ITEMNAME\n"
+                        .string "holes just like my big brother...$"
+
+                    Route114_FossilManiacsHouse_Text_1926AE:: @ 81926AE
+                        .string "If you make a POKéMON ITEMNAME inside a\n"
+                        .string "cave, you're returned to the entrance...$"

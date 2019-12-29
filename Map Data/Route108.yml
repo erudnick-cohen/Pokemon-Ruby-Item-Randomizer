@@ -1,0 +1,17 @@
+Location:
+    -
+        Name: Route 108
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 107
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+        TrainerList:
+             - Jerome
+             - Tara
+             - Matthew
+             - Missy
+        WildTableList: 
+            - MAP_ROUTE107

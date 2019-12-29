@@ -1,0 +1,223 @@
+Location:
+    -
+        Name: Abandoned Ship
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 108
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+        TrainerList:
+        Sublocations:
+            -
+                Name: Abandoned Ship Harbor Mail
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                ItemReqs:
+                NormalItem: ITEM_HARBOR_MAIL
+                Code: |
+                    AbandonedShip_Rooms_1F_EventScript_1B187D:: @ 81B187D
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Abandoned Ship Escape Rope
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                ItemReqs:
+                NormalItem: ITEM_ESCAPE_ROPE
+                Code: |
+                    AbandonedShip_Rooms_B1F_EventScript_1B188A:: @ 81B188A
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Abandoned Ship Dive Ball
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                ItemReqs:
+                NormalItem: ITEM_DIVE_BALL
+                Code: |
+                    AbandonedShip_Rooms2_B1F_EventScript_1B1897:: @ 81B1897
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Abandoned Ship Revive
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                ItemReqs:
+                NormalItem: ITEM_REVIVE
+                Code: |
+                    AbandonedShip_Rooms2_1F_EventScript_1B18B1:: @ 81B18B1
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Abandoned Ship Storage Key
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                ItemReqs:
+                Code: |
+                    AbandonedShip_CaptainsOffice_EventScript_1B18BE:: @ 81B18BE
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Ice Beam TM
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                ItemReqs:
+                    - Storage Key
+                NormalItem: ITEM_TM13_ICE_BEAM
+                Code: |
+                    AbandonedShip_Room_B1F_EventScript_1B18A4:: @ 81B18A4
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Rain Dance TM
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                FlagReqs:
+                    - Balance Badge
+                    - Mind Badge
+                ItemReqs:
+                    - Room 1 Key
+                    - Dive
+                    - Surf
+                NormalItem: ITEM_TM18_RAIN_DANCE
+                Code: |
+                    AbandonedShip_HiddenFloorRooms_EventScript_1B18F2:: @ 81B18F2
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Abandoned Ship Scanner
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                FlagReqs:
+                    - Balance Badge
+                    - Mind Badge
+                ItemReqs:
+                    - Room 2 Key
+                    - Dive
+                    - Surf
+                Code: |
+                    AbandonedShip_HiddenFloorRooms_EventScript_1B18F2:: @ 81B18F2
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Water Stone
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                FlagReqs:
+                    - Balance Badge
+                    - Mind Badge
+                ItemReqs:
+                    - Dive
+                    - Surf
+                NormalItem: ITEM_WATER_STONE
+                Code: |
+                    AbandonedShip_HiddenFloorRooms_EventScript_1B18E5:: @ 81B18E5
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Room 1 Hidden Item
+                ScriptFileName: data/maps/AbandonedShip_HiddenFloorRooms/map.json
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                FlagReqs:
+                    - Balance Badge
+                    - Mind Badge
+                ItemReqs:
+                    - Room 1 Key
+                    - Dive
+                    - Surf
+                Code: |
+                        {
+                          "type": "hidden_item",
+                          "x": 1,
+                          "y": 12,
+                          "elevation": 3,
+                          "item": "ITEMNAME",
+                          "flag": "FLAG_HIDDEN_ITEM_21"
+                        },
+            -
+                Name: Room 3 Hidden Item
+                ScriptFileName: data/maps/AbandonedShip_HiddenFloorRooms/map.json
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                FlagReqs:
+                    - Balance Badge
+                    - Mind Badge
+                ItemReqs:
+                    - Dive
+                    - Surf
+                Code: |
+                        {
+                          "type": "hidden_item",
+                          "x": 42,
+                          "y": 10,
+                          "elevation": 3,
+                          "item": "ITEMNAME",
+                          "flag": "FLAG_HIDDEN_ITEM_1F"
+                        },
+            -
+                Name: Room 4 Hidden Item
+                ScriptFileName: data/maps/AbandonedShip_HiddenFloorRooms/map.json
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                FlagReqs:
+                    - Balance Badge
+                    - Mind Badge
+                ItemReqs:
+                    - Room 4 Key
+                    - Dive
+                    - Surf
+                Code: |
+                        {
+                          "type": "hidden_item",
+                          "x": 1,
+                          "y": 2,
+                          "elevation": 0,
+                          "item": "ITEMNAME",
+                          "flag": "FLAG_HIDDEN_ITEM_22"
+                        },
+            -
+                Name: Room 5 Hidden Item
+                ScriptFileName: data/maps/AbandonedShip_HiddenFloorRooms/map.json
+                LocationReqs: 
+                    - Abandoned Ship
+                Type: Item
+                FlagReqs:
+                    - Balance Badge
+                    - Mind Badge
+                ItemReqs:
+                    - Room 6 Key
+                    - Dive
+                    - Surf
+                Code: |
+                        {
+                          "type": "hidden_item",
+                          "x": 20,
+                          "y": 5,
+                          "elevation": 3,
+                          "item": "ITEMNAME",
+                          "flag": "FLAG_HIDDEN_ITEM_20"
+                        },

@@ -1,0 +1,96 @@
+Location:
+    -
+        Name: Meteor Falls Entrance
+        LocationReqs:
+            - Route 114
+    -
+        Name: Meteor Falls Entrance
+        LocationReqs:
+            - Route 115
+    -
+        Name: Meteor Falls
+        HasPKMN: Yes
+        LocationReqs:
+            - Meteor Falls Entrance
+        TrainerList:
+        WildTableList: 
+            - MAP_METEOR_FALLS_1F_1R
+        Sublocations:
+            -
+                Name: Meteor Falls Full Heal
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Meteor Falls
+                Type: Item
+                FlagReqs:
+                NormalItem: ITEM_FULL_HEAL
+                Code: |
+                    MeteorFalls_1F_1R_EventScript_1B1808:: @ 81B1808
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Meteor Falls Moon Stone
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Meteor Falls
+                Type: Item
+                FlagReqs:
+                NormalItem: ITEM_MOON_STONE
+                Code: |
+                    MeteorFalls_1F_1R_EventScript_1B1815:: @ 81B1815
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Inner Meteor Falls
+                LocationReqs:
+                    - Meteor Falls
+                FlagReqs:
+                    - Balance Badge
+                    - Rain Badge
+                ItemReqs:
+                    - Surf
+                    - Waterfall
+                WildTableList:
+                    - MAP_METEOR_FALLS_1F_2R
+                    - MAP_METEOR_FALLS_B1F_1R
+                    - MAP_METEOR_FALLS_B1F_2R
+                TrainerList:
+                    - JohnAndJay 1
+                    - Nicolas 1
+                Sublocations:
+                    -
+                        Name: Iron Tail TM
+                        ScriptFileName: data/item_ball_scripts.inc
+                        LocationReqs: 
+                            - Inner Meteor Falls
+                        Type: Item
+                        FlagReqs:
+                        NormalItem: ITEM_TM23_IRON_TAIL
+                        Code: |
+                            MeteorFalls_1F_1R_EventScript_1B17FB:: @ 81B17FB
+                                giveitem_std ITEMNAME, 1, 1
+                                end
+                    -
+                        Name: Dragon Claw TM
+                        ScriptFileName: data/item_ball_scripts.inc
+                        LocationReqs: 
+                            - Meteor Falls
+                        Type: Item
+                        FlagReqs:
+                        NormalItem: ITEM_TM02_DRAGON_CLAW
+                        Code: |
+                            MeteorFalls_B1F_2R_EventScript_1B182F:: @ 81B182F
+                                giveitem_std ITEMNAME, 1, 1
+                                end
+                    -
+                        Name: Meteor Falls PP Up
+                        ScriptFileName: data/item_ball_scripts.inc
+                        LocationReqs: 
+                            - Meteor Falls
+                        Type: Item
+                        FlagReqs:
+                        NormalItem: ITEM_PP_UP
+                        Code: |
+                            MeteorFalls_1F_1R_EventScript_1B1822:: @ 81B1822
+                                giveitem_std ITEMNAME, 1, 1
+                                end

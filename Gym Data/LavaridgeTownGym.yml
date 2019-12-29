@@ -1,0 +1,55 @@
+Location:
+    -
+        Name: Lavaridge Town Gym Badge
+        ScriptFileName: data/maps/LavaridgeTown_Gym_1F/scripts.inc
+        LocationReqs:
+            - Lavaridge Gym TM
+        Type: Gym
+        GymType: Fire
+        HasPKMN: No
+        WildTableList:
+        FlagReqs:
+        ItemReqs:
+        FlagsSet:
+        ReachableReqs:
+        ItemUnlock: Cut
+        InfeasibleBadges:
+        NormalBadge: Heat Badge
+        BadgeLine: |
+            LavaridgeTown_Gym_1F_EventScript_153766:: @ 8153766
+                message LavaridgeTown_Gym_1F_Text_176A62
+                waitmessage
+                call LavaridgeTown_Gym_1F_EventScript_1A02C5
+                msgbox LavaridgeTown_Gym_1F_Text_176A8C, 4
+                setflag FLAG_DEFEATED_LAVARIDGE_GYM
+                setflag BADGEFLAG
+                addvar VAR_PETALBURG_GYM_STATE, 1
+                compare VAR_PETALBURG_GYM_STATE, 6
+                call_if_eq LavaridgeTown_Gym_1F_EventScript_1A00FB
+                setvar VAR_0x8008, 4
+                call LavaridgeTown_Gym_1F_EventScript_1A01C0
+                setflag FLAG_HIDE_WALLY_WANDAS_HOUSE
+                setvar VAR_LAVARIDGE_RIVAL_STATE, 1
+                goto LavaridgeTown_Gym_1F_EventScript_1537A7
+                end
+        Code:
+        Text:
+            -
+                File: data/maps/LavaridgeTown_Gym_1F/text.inc
+                Text: |
+                    LavaridgeTown_Gym_1F_Text_176A62:: @ 8176A62
+                        .string "{PLAYER} received the BADGENAME\n"
+                        .string "from FLANNERY.$"
+            -
+                File: data/maps/LavaridgeTown_Gym_1F/text.inc
+                Text: |
+                    LavaridgeTown_Gym_1F_Text_176312:: @ 8176312
+                        .string "Hey, how's it going, CHAMPION-\n"
+                        .string "bound {PLAYER}?\p"
+                        .string "LAVARIDGE's GYM LEADER FLANNERY\n"
+                        .string "uses GYMTYPE-type POKéMON.\p"
+                        .string "Her passion for POKéMON burns stronger\n"
+                        .string "and hotter than a volcano.\p"
+                        .string "Don't get too close to her - you'll burn!\n"
+                        .string "Hose her down with water and then\l"
+                        .string "go for it!$"

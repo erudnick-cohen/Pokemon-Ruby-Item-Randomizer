@@ -1,0 +1,18 @@
+Location:
+    -
+        Name: Route 107
+        HasPKMN: Yes
+        LocationReqs:
+            - Dewford Town
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+        TrainerList:
+             - Beth
+             - Darrin
+             - LisaAndRay
+             - Tony 1
+             - Denise
+        WildTableList: 
+            - MAP_ROUTE107

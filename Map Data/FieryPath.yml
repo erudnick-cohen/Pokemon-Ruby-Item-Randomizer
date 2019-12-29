@@ -1,0 +1,46 @@
+Location:
+    -
+        Name: Fiery Path Entrance
+        LocationReqs:
+            - Route 111
+    -
+        Name: Fiery Path Entrance
+        LocationReqs:
+            - Route 113
+    -
+        Name: Fiery Path
+        LocationReqs:
+            - Fiery Path Entrance
+        WildTableList:
+            - MAP_FIERY_PATH
+        Sublocations:
+            -
+                Name: Toxic TM
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Fiery Path
+                Type: Item
+                FlagReqs:
+                    - Heat Badge
+                ItemReqs:
+                    - Strength
+                NormalItem: ITEM_TM06_TOXIC
+                Code: |
+                    FieryPath_EventScript_1B17EE:: @ 81B17EE
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Fiery Path Fire Stone
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Fiery Path
+                Type: Item
+                FlagReqs:
+                    - Heat Badge
+                ItemReqs:
+                    - Strength
+                NormalItem: ITEM_FIRE_STONE
+                Code: |
+                    FieryPath_EventScript_1B17E1:: @ 81B17E1
+                        giveitem_std ITEMNAME, 1, 1
+                        end

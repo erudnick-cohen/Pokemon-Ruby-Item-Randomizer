@@ -1,0 +1,33 @@
+Location:
+    -
+        Name: Cycling Road Entrance A
+        LocationReqs:
+            - Route 110
+    -
+        Name: Cycling Road Entrance A
+        LocationReqs:
+            - Slateport City
+    -
+        Name: Cycling Road Entrance B
+        ItemReqs:
+            - Mach Bike
+        LocationReqs:
+            - Cycling Road Entrance A
+    -
+        Name: Cycling Road Entrance B
+        ItemReqs:
+            - Acro Bike
+        LocationReqs:
+            - Cycling Road Entrance 
+    -
+        Name: Cycling Road
+        HasPKMN: Yes
+        LocationReqs:
+            - Cycling Road Entrance B
+        TrainerList:
+             - Jaclyn
+             - Abigail 1
+             - Anthony
+             - Benjamin 1
+             - Jasmine
+             - Jacob

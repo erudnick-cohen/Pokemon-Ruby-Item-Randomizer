@@ -1,0 +1,80 @@
+Location:
+    -
+        Name: Lavaridge Town
+        LocationReqs:
+            - Jagged Pass
+        Sublocations:
+            -
+                Name: Route 112 Nugget
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Lavaridge Town
+                Type: Item
+                NormalItem: ITEM_NUGGET
+                Code: |
+                    Route112_EventScript_1B14EF:: @ 81B14EF
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Lavaridge Charcoal
+                ScriptFileName: data/maps/LavaridgeTown_HerbShop/scripts.inc
+                TextFileName: data/maps/LavaridgeTown_HerbShop/text.inc
+                LocationReqs: 
+                    - Lavaridge Town
+                Type: Item
+                NormalItem: ITEM_CHARCOAL
+                Code: |
+                    LavaridgeTown_HerbShop_EventScript_153655:: @ 8153655
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_CHARCOAL, LavaridgeTown_HerbShop_EventScript_153684
+                        msgbox LavaridgeTown_HerbShop_Text_1761A2, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq LavaridgeTown_HerbShop_EventScript_1A029B
+                        setflag FLAG_RECEIVED_CHARCOAL
+                        release
+                        end
+                Text: |
+                    LavaridgeTown_HerbShop_Text_176209:: @ 8176209
+                        .string "That ITEMNAME I gave you, it's used\n"
+                        .string "for making herbal medicine.\p"
+                        .string "It also does wonders when held by\n"
+                        .string "a POKéMON.\p"
+                        .string "It intensifies the power of FIRE-type\n"
+                        .string "moves.$"
+            -
+                Name: Go-Goggles Gift
+                ScriptFileName: data/maps/LavaridgeTown/scripts.inc
+                TextFileName: data/maps/LavaridgeTown/text.inc
+                LocationReqs: 
+                    - Lavaridge Town
+                Type: Item
+                Code: |
+                    LavaridgeTown_EventScript_14E5AB:: @ 814E5AB
+                        msgbox LavaridgeTown_Text_16BDA4, 4
+                        giveitem_std ITEMNAME
+                        setflag FLAG_RECEIVED_GO_GOGGLES
+                        msgbox LavaridgeTown_Text_16BE7D, 4
+                        goto LavaridgeTown_EventScript_14E5F5
+                        end
+
+                    LavaridgeTown_EventScript_14E5D0:: @ 814E5D0
+                        msgbox LavaridgeTown_Text_16BF92, 4
+                        giveitem_std ITEMNAME
+                        setflag FLAG_RECEIVED_GO_GOGGLES
+                        msgbox LavaridgeTown_Text_16C020, 4
+                        goto LavaridgeTown_EventScript_14E5F5
+                        end
+                Text: |
+                    LavaridgeTown_Text_16BE7D:: @ 816BE7D
+                        .string "MAY: With those ITEMNAME, you'll\n"
+                        .string "have no trouble getting through the\l"
+                        .string "desert near ROUTE 111.\p"
+                        .string "But, wow, {PLAYER}{KUN}...\n"
+                        .string "Challenging GYMS...\p"
+                        .string "You're trying hard because you don't\n"
+                        .string "want to lose to me, I bet!\p"
+                        .string "{PLAYER}{KUN}, I think I should challenge\n"
+                        .string "your dad in PETALBURG GYM.\p"
+                        .string "{PLAYER}{KUN}, see you again!$"

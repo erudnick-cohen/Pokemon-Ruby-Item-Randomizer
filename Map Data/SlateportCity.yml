@@ -1,0 +1,162 @@
+Location:
+    -
+        Name: Slateport City Entrance
+        Type: Map
+        LocationReqs:
+            - Route 109
+    -
+        Name: Slateport City Entrance
+        Type: Map
+        LocationReqs:
+            - Cycling Road
+    -
+        Name: Slateport City
+        Type: Map
+        LocationReqs:
+            - Slateport City Entrance
+        Sublocations:
+            -
+                Name: Devon Goods Delivery
+                Type: Map
+                HasPHMN: Yes
+                LocationReqs:
+                    - Slateport City
+                ItemReqs:
+                    - Devon Goods
+            -
+                Name: Torment TM
+                Type: Item
+                NormalItem: ITEM_TM41_TORMENT
+                ScriptFileName: data/maps/SlateportCity_ContestHall/scripts.inc
+                TextFileName: data/maps/SlateportCity_ContestHall/text.inc
+                LocationReqs:
+                    - Slateport City
+                Code: |
+                    SlateportCity_ContestHall_EventScript_15555E:: @ 815555E
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_TM41, SlateportCity_ContestHall_EventScript_155595
+                        msgbox SlateportCity_ContestHall_Text_17CCE2, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq SlateportCity_ContestHall_EventScript_1A029B
+                        setflag FLAG_RECEIVED_TM41
+                        msgbox SlateportCity_ContestHall_Text_17CE28, 4
+                        release
+                        end
+                Text: |
+                    SlateportCity_ContestHall_Text_17CE28:: @ 817CE28
+                        .string "That's, like, TM41, you know?\n"
+                        .string "Hey, it's ITEMNAME, you hearing me?\p"
+                        .string "Like, it won't let the other guy\n"
+                        .string "use the same move twice in a row, see?\p"
+                        .string "Hey, now, you listen here, like,\n"
+                        .string "I'm not laying a torment on you!$"
+            -
+                Name: Pokeblock Case
+                Type: Item
+                NormalItem: ITEM_POKEBLOCK_CASE
+                ScriptFileName: data/maps/SlateportCity_ContestLobby/scripts.inc
+                LocationReqs:
+                    - Slateport City
+                Code: |
+                    SlateportCity_ContestLobby_EventScript_1554F9:: @ 81554F9
+                        lockall
+                        goto_if_set FLAG_RECEIVED_POKEBLOCK_CASE, SlateportCity_ContestLobby_EventScript_155526
+                        applymovement 7, SlateportCity_ContestLobby_Movement_1A0839
+                        waitmovement 0
+                        msgbox SlateportCity_ContestLobby_Text_17CA67, 4
+                        giveitem_std ITEMNAME
+                        setflag FLAG_RECEIVED_POKEBLOCK_CASE
+                        releaseall
+                        end
+            -
+                Name: Scanner Exchange
+                Type: Item
+                NormalItem: ITEM_DEEP_SEA_TOOTH
+                ScriptFileName: data/maps/SlateportCity_Harbor/scripts.inc
+                TextFileName: data/maps/SlateportCity_Harbor/text.inc
+                LocationReqs:
+                    - Slateport City
+                ItemReqs:
+                    - Scanner
+                Code: |
+                    SlateportCity_Harbor_EventScript_1562EA:: @ 81562EA
+                        msgbox SlateportCity_Harbor_Text_1803DD, MSGBOX_YESNO
+                        compare VAR_RESULT, NO
+                        goto_if_eq SlateportCity_Harbor_EventScript_156374
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq SlateportCity_Harbor_EventScript_1A029B
+                        takeitem ITEM_SCANNER, 1
+                        msgbox SlateportCity_Harbor_Text_18046B, 4
+                        setflag FLAG_EXCHANGED_SCANNER
+                        goto SlateportCity_Harbor_EventScript_156380
+                        end
+
+                    SlateportCity_Harbor_EventScript_15632A:: @ 815632A
+                        msgbox SlateportCity_Harbor_Text_180412, MSGBOX_YESNO
+                        compare VAR_RESULT, NO
+                        goto_if_eq SlateportCity_Harbor_EventScript_156374
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq SlateportCity_Harbor_EventScript_1A029B
+                        takeitem ITEM_SCANNER, 1
+                        msgbox SlateportCity_Harbor_Text_18046B, 4
+                        setflag FLAG_EXCHANGED_SCANNER
+                        goto SlateportCity_Harbor_EventScript_156380
+                        end
+                Text: |
+                    SlateportCity_Harbor_Text_18028B:: @ 818028B
+                        .string "CAPT. STERN: Oh?\n"
+                        .string "{PLAYER}{KUN}, that item you have...\p"
+                        .string "That's a SCANNER! That would sure\n"
+                        .string "help us on our explorations.\p"
+                        .string "{PLAYER}{KUN}, would you trade your\n"
+                        .string "SCANNER for something?\p"
+                        .string "Like say a ITEMNAME or a\n"
+                        .string "ITEMNAME that I have?$"
+
+                    SlateportCity_Harbor_Text_180360:: @ 8180360
+                        .string "CAPT. STERN: Are you certain?\n"
+                        .string "It's useless to you, {PLAYER}{KUN}...\p"
+                        .string "Well, okay, then. If you want to trade\n"
+                        .string "your SCANNER, let me know.$"
+
+                    SlateportCity_Harbor_Text_1803DD:: @ 81803DD
+                        .string "CAPT. STERN: So you'll trade it for\n"
+                        .string "my ITEMNAME?$"
+
+                    SlateportCity_Harbor_Text_180412:: @ 8180412
+                        .string "CAPT. STERN: So you'll trade it for\n"
+                        .string "my DEEPSEASCALE?$"
+            -
+                Name: Thief TM
+                Type: Item
+                NormalItem: ITEM_TM46_THIEF
+                ScriptFileName: data/maps/SlateportCity_OceanicMuseum_1F/scripts.inc
+                LocationReqs:
+                    - Devon Goods Delivery
+                ItemReqs:
+                Code: |
+                    SlateportCity_OceanicMuseum_1F_EventScript_155C3A:: @ 8155C3A
+                        lock
+                        faceplayer
+                        delay 8
+                        playse SE_PIN
+                        applymovement 13, SlateportCity_OceanicMuseum_1F_Movement_1A0833
+                        waitmovement 0
+                        applymovement 13, SlateportCity_OceanicMuseum_1F_Movement_1A0835
+                        waitmovement 0
+                        msgbox SlateportCity_OceanicMuseum_1F_Text_17E582, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq SlateportCity_OceanicMuseum_1F_EventScript_155CC2
+                        setflag FLAG_RECEIVED_TM46
+                        msgbox SlateportCity_OceanicMuseum_1F_Text_17E606, 4
+                        closemessage
+                        compare VAR_FACING, 2
+                        goto_if_eq SlateportCity_OceanicMuseum_1F_EventScript_155C98
+                        compare VAR_FACING, 2
+                        goto_if_ne SlateportCity_OceanicMuseum_1F_EventScript_155CAD
+                        end

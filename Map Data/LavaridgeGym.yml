@@ -1,0 +1,35 @@
+Location:
+    -
+        Name: Lavaridge Gym TM
+        ScriptFileName: data/maps/LavaridgeTown_Gym_1F/scripts.inc
+        TextFileName: data/maps/LavaridgeTown_Gym_1F/text.inc
+        HasPKMN: Yes
+        Type: Item
+        LocationReqs:
+            - Lavaridge Town
+        TrainerList:
+             - Cole
+             - Zane
+             - Axle
+             - Sadie
+             - Andy
+             - Flannery
+        NormalItem: ITEM_TM50_OVERHEAT
+        Code: |
+            LavaridgeTown_Gym_1F_EventScript_1537A7:: @ 81537A7
+                giveitem_std ITEMNAME
+                compare VAR_RESULT, 0
+                goto_if_eq LavaridgeTown_Gym_1F_EventScript_1A029B
+                msgbox LavaridgeTown_Gym_1F_Text_176B8F, 4
+                setflag FLAG_RECEIVED_TM50
+                release
+                end
+        Text: |
+            LavaridgeTown_Gym_1F_Text_176B8F:: @ 8176B8F
+                .string "That TM50 contains ITEMNAME.\p"
+                .string "That move inflicts serious damage on\n"
+                .string "the opponent.\p"
+                .string "But it also sharply cuts the SP. ATK\n"
+                .string "of the POKéMON using it. It might not\l"
+                .string "be suitable for longer battles.$"
+        Sublocations:

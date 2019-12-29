@@ -15,10 +15,36 @@ Location:
              - Brendan 7
         WildTableList: 
             - MAP_ROUTE103
+    -
+        Name: Route 103 Right Side Entrance
+        Type: Map
+        LocationReqs:
+            - Route 103
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+    -
+        Name: Route 103 Right Side Entrance
+        Type: Map
+        LocationReqs:
+            - Route 110
+    -
+        Name: Route 103 Right Side
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 103 Right Side Entrance
+        TrainerList:
+             - Daisy
+             - AmyAndLiv 1
+             - Miguel 1
+             - Andrew
         Sublocations:
             -
                 Name: Route 103 Guard Spec.
                 ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 103 Right Side
                 Type: Item
                 FlagReqs:
                     - Stone Badge

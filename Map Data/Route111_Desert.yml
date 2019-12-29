@@ -1,0 +1,108 @@
+Location:
+    -
+        Name: Route 111 Desert
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 111
+        ItemReqs:
+            - Go-Goggles
+        TrainerList:
+             - Cliff
+             - Heidi
+             - Drew
+             - Dusty 1
+             - Becky
+             - Vivi
+             - Vicky
+        WildTableList: 
+            - MAP_ROUTE111
+        Sublocations:
+            -
+                Name: Route 111 Desert Stardust
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 111 Desert
+                Type: Item
+                FlagReqs:
+                NormalItem: ITEM_STARDUST
+                Code: |
+                    Route111_EventScript_1B14D5:: @ 81B14D5
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Sandstorm TM
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 111 Desert
+                Type: Item
+                FlagReqs:
+                NormalItem: ITEM_TM37_SANDSTORM
+                Code: |
+                    Route111_EventScript_1B14C8:: @ 81B14C8
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Fossil Item
+                ScriptFileName: data/maps/Route111/scripts.inc
+                TextFileName: data/maps/Route111/text.inc
+                LocationReqs: 
+                    - Route 111 Desert
+                Type: Item
+                NormalItem: ITEM_ROOT_FOSSIL
+                Code: |
+                    Route111_EventScript_150023:: @ 8150023
+                        lockall
+                        msgbox Route111_Text_16FA54, MSGBOX_YESNO
+                        compare VAR_RESULT, NO
+                        goto_if_eq Route111_EventScript_15005F
+                        giveitem_std ITEMNAME
+                        closemessage
+                        setflag FLAG_HIDE_ROOT_FOSSIL
+                        setflag FLAG_HIDE_CLAW_FOSSIL
+                        removeobject 34
+                        delay 30
+                        applymovement 35, Route111_Movement_1500AF
+                        waitmovement 0
+                        removeobject 35
+                        releaseall
+                        end
+
+                    Route111_EventScript_15005F:: @ 815005F
+                        msgbox Route111_Text_16FACE, 4
+                        releaseall
+                        end
+
+                    Route111_EventScript_150069:: @ 8150069
+                        lockall
+                        msgbox Route111_Text_16FAED, MSGBOX_YESNO
+                        compare VAR_RESULT, NO
+                        goto_if_eq Route111_EventScript_1500A5
+                        giveitem_std ITEMNAME
+                        closemessage
+                        setflag FLAG_HIDE_CLAW_FOSSIL
+                        setflag FLAG_HIDE_ROOT_FOSSIL
+                        removeobject 35
+                        delay 30
+                        applymovement 34, Route111_Movement_1500AF
+                        waitmovement 0
+                        removeobject 34
+                        releaseall
+                        end
+                Text: |
+                    Route111_Text_16FA54:: @ 816FA54
+                        .string "You found the ROOT ITEMNAME.\p"
+                        .string "If this ITEMNAME is taken, the other\n"
+                        .string "one will sink into the sand...\p"
+                        .string "Take the ROOT ITEMNAME anyway?$"
+
+                    Route111_Text_16FACE:: @ 816FACE
+                        .string "{PLAYER} left the ROOT ITEMNAME alone.$"
+
+                    Route111_Text_16FAED:: @ 816FAED
+                        .string "You found the CLAW ITEMNAME.\p"
+                        .string "If this ITEMNAME is taken, the other\n"
+                        .string "one will sink into the sand...\p"
+                        .string "Take the CLAW ITEMNAME anyway?$"
+
+                    Route111_Text_16FB67:: @ 816FB67
+                        .string "{PLAYER} left the CLAW ITEMNAME alone.$"

@@ -89,7 +89,7 @@ Location:
                 Type: Item
                 LocationReqs:
                     - Mauville City
-                    - Petalburg City Gym
+                    - Petalburg Gym TM
                 Code: |
                     MauvilleCity_EventScript_14C2F2:: @ 814C2F2
                         lock
@@ -160,3 +160,34 @@ Location:
                         giveitem_std ITEMNAME, 1, 1
                         end
                 TrainerList:
+            -
+                Name: Acro Bike
+                ScriptFileName: data/maps/MauvilleCity_BikeShop/scripts.inc
+                TextFileName: data/maps/MauvilleCity_BikeShop/text.inc
+                Type: Item
+                LocationReqs:
+                    - Mauville City
+                Code: |
+                    MauvilleCity_BikeShop_EventScript_156847:: @ 8156847
+                        msgbox MauvilleCity_BikeShop_Text_18134A, 4
+                        giveitem_std ITEMNAME
+                        releaseall
+                        end
+                Text: |
+                    MauvilleCity_BikeShop_Text_18134A:: @ 818134A
+                        .string "{PLAYER} chose the ITEMNAME.$"
+            -
+                Name: Mach Bike
+                ScriptFileName: data/maps/MauvilleCity_BikeShop/scripts.inc
+                TextFileName: data/maps/MauvilleCity_BikeShop/text.inc
+                Type: Item
+                LocationReqs:
+                    - Mauville City
+                Code: |
+                    MauvilleCity_BikeShop_EventScript_15682D:: @ 815682D
+                        msgbox MauvilleCity_BikeShop_Text_181332, 4
+                        giveitem_std ITEMNAME
+                        goto MauvilleCity_BikeShop_EventScript_156847
+                Text: |
+                    MauvilleCity_BikeShop_Text_18134A:: @ 818134A
+                        .string "{PLAYER} chose the ITEMNAME.$"

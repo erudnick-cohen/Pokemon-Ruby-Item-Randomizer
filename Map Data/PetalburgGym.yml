@@ -1,0 +1,60 @@
+Location:
+    -
+        Name: Petalburg Gym TM
+        ScriptFileName: data/maps/PetalburgCity_Gym/scripts.inc
+        TextFileName: data/maps/PetalburgCity_Gym/text.inc
+        HasPKMN: Yes
+        Type: Item
+        LocationReqs:
+            - Lavaridge Gym TM
+            - Dewford Gym TM
+            - Rustboro Gym TM
+            - Mauville Gym TM
+        TrainerList:
+             - Randall
+             - Mary
+             - Parker
+             - Lori
+             - George
+             - Jody
+             - Berke
+             - Norman
+        NormalItem: ITEM_TM42_FACADE
+        Code: |
+            PetalburgCity_Gym_EventScript_154A2C:: @ 8154A2C
+                giveitem_std ITEMNAME
+                compare VAR_RESULT, 0
+                goto_if_eq PetalburgCity_Gym_EventScript_1A029B
+                setflag FLAG_RECEIVED_TM42
+                msgbox PetalburgCity_Gym_Text_17A8CF, 4
+                msgbox PetalburgCity_Gym_Text_17A976, 4
+                closemessage
+                compare VAR_FACING, 2
+                call_if_eq PetalburgCity_Gym_EventScript_154ABC
+                compare VAR_FACING, 1
+                call_if_eq PetalburgCity_Gym_EventScript_154AC7
+                compare VAR_FACING, 3
+                call_if_eq PetalburgCity_Gym_EventScript_154AD2
+                compare VAR_FACING, 4
+                call_if_eq PetalburgCity_Gym_EventScript_154ADD
+                delay 70
+                compare VAR_FACING, 2
+                call_if_eq PetalburgCity_Gym_EventScript_154AE8
+                compare VAR_FACING, 1
+                call_if_eq PetalburgCity_Gym_EventScript_154AF3
+                compare VAR_FACING, 3
+                call_if_eq PetalburgCity_Gym_EventScript_154AFE
+                compare VAR_FACING, 4
+                call_if_eq PetalburgCity_Gym_EventScript_154B09
+                msgbox PetalburgCity_Gym_Text_17A9F6, 4
+                release
+                end
+        Text: |
+            PetalburgCity_Gym_Text_17A8CF:: @ 817A8CF
+                .string "DAD: TM42 contains ITEMNAME.\p"
+                .string "It doubles the power of moves if\n"
+                .string "the POKéMON is poisoned, paralyzed,\l"
+                .string "or burned.\p"
+                .string "It might be able to turn a bad\n"
+                .string "situation into an advantage.$"
+        Sublocations:

@@ -1,0 +1,83 @@
+Location:
+    -
+        Name: Route 113 Entrance
+        LocationReqs:
+            - Fallarbor Town
+    -
+        Name: Route 113 Entrance
+        LocationReqs:
+            - Fiery Path
+    -
+        Name: Route 113
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 113 Entrance
+        TrainerList:
+             - Neal
+             - Lao 1
+             - Madeline 1
+             - ToriAndTia
+             - Lung
+             - Dillion
+             - Wilton 1
+             - Brooke 1
+             - Daisuke
+        WildTableList: 
+            - MAP_ROUTE113
+        Sublocations:
+            -
+                Name: Route 113 Super Repel
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 113
+                Type: Item
+                FlagReqs:
+                NormalItem: ITEM_SUPER_REPEL
+                Code: |
+                    Route113_EventScript_1B1509:: @ 81B1509
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 113 Max Ether
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 113
+                Type: Item
+                FlagReqs:
+                NormalItem: ITEM_MAX_ETHER
+                Code: |
+                    Route113_EventScript_1B14FC:: @ 81B14FC
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Soot Sack
+                ScriptFileName: data/maps/Route113_GlassWorkshop/scripts.inc
+                TextFileName: data/maps/Route113_GlassWorkshop/text.inc
+                LocationReqs: 
+                    - Route 113
+                Type: Item
+                NormalItem: ITEM_SOOT_SACK
+                Code: |
+                    Route113_GlassWorkshop_EventScript_163565:: @ 8163565
+                        lock
+                        faceplayer
+                        compare VAR_GLASS_WORKSHOP_STATE, 10
+                        goto_if_ge Route113_GlassWorkshop_EventScript_1638D2
+                        compare VAR_GLASS_WORKSHOP_STATE, 2
+                        goto_if_eq Route113_GlassWorkshop_EventScript_1635B5
+                        compare VAR_GLASS_WORKSHOP_STATE, 1
+                        goto_if_eq Route113_GlassWorkshop_EventScript_1635AB
+                        msgbox Route113_GlassWorkshop_Text_19E4E6, 4
+                        giveitem_std ITEMNAME
+                        setvar VAR_GLASS_WORKSHOP_STATE, 1
+                        msgbox Route113_GlassWorkshop_Text_19E59B, 4
+                        release
+                        end
+                Text: |
+                    Route113_GlassWorkshop_Text_19E59B:: @ 819E59B
+                        .string "Just take that ITEMNAME and walk\n"
+                        .string "through piles of ash, huff-puff.\p"
+                        .string "And it will fill up with the volcanic ash,\n"
+                        .string "huff-puff.\p"
+                        .string "Once you think you've collected a good\n"
+                        .string "amount, come see me, huff-puff.$"

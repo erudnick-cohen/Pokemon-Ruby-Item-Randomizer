@@ -7,7 +7,7 @@ from collections import defaultdict
 res = LoadLocationData.LoadDataFromFolder(".")
 trashItems = res[1]
 LocationList = res[0]
-progressItems = ['Cut','Surf','Letter', 'Devon Goods', 'Strength', 'Basement Key','Rock Smash', 'Flash']
+progressItems = ['Cut','Surf','Dive','Letter', 'Devon Goods', 'Strength', 'Basement Key','Rock Smash', 'Flash','Acro Bike','Mach Bike', 'Meteorite', 'Go-Goggles', 'Storage Key', 'Scanner','Room 1 Key','Room 2 Key','Room 4 Key','Room 6 Key']
 print(res)
 Stone = Badge.Badge()
 Stone.isTrash = False
@@ -21,8 +21,19 @@ Knuckle = Badge.Badge()
 Knuckle.isTrash = False
 Knuckle.Name = 'Dynamo Badge'
 Knuckle.Flag = 'FLAG_BADGE02_GET';
-BadgeDict = {'Stone Badge' : Stone, 'Dynamo Badge' : Dynamo, 'Knuckle Badge': Knuckle}
-
+Balance = Badge.Badge()
+Balance.isTrash = False
+Balance.Name = 'Balance Badge'
+Balance.Flag = 'FLAG_BADGE05_GET';
+Heat = Badge.Badge()
+Heat.isTrash = False
+Heat.Name = 'Heat Badge'
+Heat.Flag = 'FLAG_BADGE04_GET';
+Mind = Badge.Badge()
+Mind.isTrash = False
+Mind.Name = 'Mind Badge'
+Mind.Flag = 'FLAG_BADGE07_GET';
+BadgeDict = {'Stone Badge' : Stone, 'Dynamo Badge' : Dynamo, 'Knuckle Badge': Knuckle, 'Balance Badge': Balance, 'Heat Badge':Heat,'Mind Badge':Mind}
 result = RandomizeItems.RandomizeItems('None',LocationList,progressItems,trashItems,BadgeDict,inputFlags = ['Kanto Mode'])
 
 RandomizerRom.ResetRom()

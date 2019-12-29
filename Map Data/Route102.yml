@@ -13,3 +13,15 @@ Location:
              - Allen
         WildTableList: 
             - MAP_ROUTE102
+        Sublocations:
+            -
+                Name: Route 102 Potion
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 102
+                Type: Item
+                NormalItem: ITEM_POTION
+                Code: |
+                    Route102_EventScript_1B1439:: @ 81B1439
+                        giveitem_std ITEMNAME, 1, 1
+                        end

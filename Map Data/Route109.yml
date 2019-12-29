@@ -7,10 +7,19 @@ Location:
     -
         Name: Route 109 Entrance
         Type: Map
+        LocationReqs:
+            - Slateport City
+    -
+        Name: Route 109 Entrance
+        Type: Map
         FlagReqs:
         ItemReqs:
         LocationReqs:
-            - Route 109
+            - Route 108
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
     -
         Name: Route 109
         Type: Map
@@ -79,7 +88,7 @@ Location:
             -
                 Name: Route 109 PP Up
                 Type: Item
-                ScriptFileName: data/maps/Route109/scripts.inc
+                ScriptFileName: data/item_ball_scripts.inc
                 LocationReqs:
                     - Route 109
                 ItemReqs:

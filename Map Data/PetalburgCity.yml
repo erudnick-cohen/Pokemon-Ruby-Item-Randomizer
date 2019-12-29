@@ -44,7 +44,7 @@ Location:
                 TextFileName: data/maps/PetalburgCity_WallysHouse/text.inc
                 Type: Item
                 FlagReqs:
-                    - Petalburg Gym
+                    - Petalburg Gym TM
                 Code: |
                     PetalburgCity_WallysHouse_EventScript_154406:: @ 8154406
                         msgbox PetalburgCity_WallysHouse_Text_179996, 4

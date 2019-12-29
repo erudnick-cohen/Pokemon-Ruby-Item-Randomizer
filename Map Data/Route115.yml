@@ -1,0 +1,79 @@
+Location:
+    -
+        Name: Route 115 Entrance
+        LocationReqs:
+            - Rustboro City
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+    -
+        Name: Route 115 Entrance
+        LocationReqs:
+            - Meteor Falls
+    -
+        Name: Route 115
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 115 Entrance
+        TrainerList:
+        WildTableList: 
+            - MAP_ROUTE115
+        Sublocations:
+            -
+                Name: Route 115 Great Ball
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 115
+                Type: Item
+                FlagReqs:
+                    - Dynamo Badge
+                ItemReqs:
+                    - Rock Smash
+                NormalItem: ITEM_GREAT_BALL
+                Code: |
+                    Route115_EventScript_1B1557:: @ 81B1557
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Focus Punch TM
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 115
+                Type: Item
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+                NormalItem: ITEM_TM01_FOCUS_PUNCH
+                Code: |
+                    Route115_EventScript_1B153D:: @ 81B153D
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 115 Iron
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 115
+                Type: Item
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+                    - Mach Bike
+                NormalItem: ITEM_IRON
+                Code: |
+                    Route115_EventScript_1B154A:: @ 81B154A
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+    -
+        Name: Route 115 Super Potion
+        ScriptFileName: data/item_ball_scripts.inc
+        LocationReqs: 
+            - Rustboro City
+        Type: Item
+        NormalItem: ITEM_SUPER_POTION
+        Code: |
+            Route115_EventScript_1B1530:: @ 81B1530
+                giveitem_std ITEMNAME, 1, 1
+                end

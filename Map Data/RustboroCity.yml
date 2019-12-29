@@ -119,6 +119,8 @@ Location:
                 ScriptFileName: data/maps/RustboroCity/scripts.inc
                 TextFileName: data/maps/RustboroCity/text.inc
                 Type: Item
+                ItemReqs:
+                    - Devon Goods
                 LocationReqs:
                     - Rustboro City
                 NormalItem: ITEM_GREAT_BALL

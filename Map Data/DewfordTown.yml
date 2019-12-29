@@ -7,11 +7,11 @@ Location:
             -
                 Name: Sludge Bomb TM
                 ScriptFileName: data/maps/DewfordTown_Hall/scripts.inc
-                TextFileName: data/maps/DewfordTown_Hall/scripts.inc
+                TextFileName: data/maps/DewfordTown_Hall/text.inc
                 Type: Item
                 LocationReqs:
                     - Dewford Town
-                    - Petalburg City Gym
+                    - Petalburg Gym TM
                 WildTableList: 
                 NormalItem: ITEM_TM36_SLUDGE_BOMB
                 Code: |
@@ -108,7 +108,7 @@ Location:
                         .string "And, as an added bonus, I'll even throw\n"
                         .string "in a little fishing advice!\p"
                         .string "First, you want to face the water,\n"
-                        .string "then use the ROD.\p"
+                        .string "then use the ITEMNAME.\p"
                         .string "Focus your mind...\n"
                         .string "If you get a bite, pull on the ITEMNAME.\p"
                         .string "Sometimes you can snag something\n"
