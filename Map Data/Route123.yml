@@ -1,0 +1,104 @@
+Location:
+    -
+        Name: Route 123
+        HasPKMN: Yes
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+        LocationReqs:
+            - Route 121
+        TrainerList:
+             - Grunt 52
+             - Grunt 25
+             - Grunt 43
+             - Grunt 16
+             - Grunt 17
+             - Grunt 44
+             - Grunt 45
+             - Grunt 18
+             - Courtney 1
+             - Shelly 1
+             - Kent
+             - Greg
+             - Donald
+             - Taylor
+             - Doug
+             - Brent
+             - Eugene
+             - Catherine 1
+             - Jackson 1
+             - Phil
+             - Takashi
+             - Hugh
+        WildTableList:
+            - MAP_ROUTE123
+        Sublocations:
+            -
+                Name: Route 123 Calcium
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 123
+                NormalItem: ITEM_CALCIUM
+                Code: |
+                    Route123_EventScript_1B165B:: @ 81B165B
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 123 Rare Candy
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 123
+                NormalItem: ITEM_RARE_CANDY
+                Code: |
+                    Route123_EventScript_1B1668:: @ 81B1668
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 123 Ultra Ball
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 123
+                NormalItem: ITEM_ULTRA_BALL
+                Code: |
+                    Route123_EventScript_1B1675:: @ 81B1675
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 123 Elixir
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 123
+                NormalItem: ITEM_ELIXIR
+                Code: |
+                    Route123_EventScript_1B1682:: @ 81B1682
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Giga Drain TM
+                ScriptFileName: data/maps/Route123/scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 123
+                NormalItem: ITEM_TM19_GIGA_DRAIN
+                Code: |
+                    Route123_EventScript_151C5D:: @ 8151C5D
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_TM19, Route123_EventScript_151CAC
+                        msgbox Route123_Text_171D83, 4
+                        special IsGrassTypeInParty
+                        compare VAR_RESULT, 0
+                        goto_if_eq Route123_EventScript_151CAA
+                        msgbox Route123_Text_171DC2, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq Route123_EventScript_1A029B
+                        setflag FLAG_RECEIVED_TM19
+                        msgbox Route123_Text_171E34, 4
+                        release
+                        end

@@ -55,7 +55,6 @@ Location:
             -
                 Name: Pokeblock Case
                 Type: Item
-                NormalItem: ITEM_POKEBLOCK_CASE
                 ScriptFileName: data/maps/SlateportCity_ContestLobby/scripts.inc
                 LocationReqs:
                     - Slateport City

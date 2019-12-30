@@ -7,7 +7,7 @@ from collections import defaultdict
 res = LoadLocationData.LoadDataFromFolder(".")
 trashItems = res[1]
 LocationList = res[0]
-progressItems = ['Cut','Surf','Dive','Letter', 'Devon Goods', 'Strength', 'Basement Key','Rock Smash', 'Flash','Acro Bike','Mach Bike', 'Meteorite', 'Go-Goggles', 'Storage Key', 'Scanner','Room 1 Key','Room 2 Key','Room 4 Key','Room 6 Key']
+progressItems = ['Cut','Surf','Dive','Letter','Pokeblock Case', 'Orb','Devon Goods', 'Strength', 'Basement Key','Rock Smash', 'Flash','Devon Scope','Acro Bike','Mach Bike', 'Meteorite', 'Go-Goggles', 'Storage Key', 'Scanner','Room 1 Key','Room 2 Key','Room 4 Key','Room 6 Key']
 print(res)
 Stone = Badge.Badge()
 Stone.isTrash = False

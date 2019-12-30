@@ -1,0 +1,154 @@
+Location:
+    -
+        Name: Route 120 Wild
+        LocationReqs:
+            - Route 120 North
+        WildTableList:
+            - MAP_ROUTE120
+    -
+        Name: Route 120 Wild
+        LocationReqs:
+            - Route 120 South
+        WildTableList:
+            - MAP_ROUTE120
+    -
+        Name: Route 120 North Entrance
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 120 South
+    -
+        Name: Route 120 North Entrance
+        HasPKMN: Yes
+        LocationReqs:
+            - Fortree City
+    -
+        Name: Route 120 North
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 120 North Entrance
+        TrainerList:
+             - GabbyAndTy 3
+             - Robert 1
+             - Clarissa
+        Sublocations:
+            -
+                Name: Route 120 Nest Ball
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 120 North
+                ItemReqs:
+                    - Devon Scope
+                NormalItem: ITEM_NEST_BALL
+                Code: |
+                    Route120_EventScript_1B1641:: @ 81B1641
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Sunny Day TM
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 120 North
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+                NormalItem: ITEM_TM11_SUNNY_DAY
+                Code: |
+                    ScorchedSlab_EventScript_1B18FF:: @ 81B18FF
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Devon Scope Gift
+                ScriptFileName: data/maps/Route120/scripts.inc
+                TextFileName: data/maps/Route120/text.inc
+                Type: Item
+                LocationReqs:
+                    - Route 120 North
+                Code: |
+                    Route120_EventScript_151853:: @ 8151853
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_DEVON_SCOPE, SkipKecleon
+                        msgbox Route120_Text_171827
+                        giveitem_std ITEMNAME
+                        setflag FLAG_RECEIVED_DEVON_SCOPE
+                        checkitem ITEM_DEVON_SCOPE, 1
+                        compare VAR_RESULT, 0
+                        goto_if_eq SkipKecleon
+                        goto Route120_EventScript_151884
+                        end
+                Text: |
+                    Route120_Text_1719D4:: @ 81719D4
+                        .string "STEVEN used the ITEMNAME.\p"
+                        .string "An invisible POKéMON became completely\n"
+                        .string "visible!\p"
+                        .string "The startled POKéMON attacked!$"
+
+                    Route120_Text_171A40:: @ 8171A40
+                        .string "STEVEN: I see...\n"
+                        .string "Your battle style is intriguing.\p"
+                        .string "Your POKéMON have obviously grown\n"
+                        .string "since I first met you in DEWFORD.\p"
+    -
+        Name: Route 120 South Entrance
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 120 North
+        ItemReqs:
+            - Devon Scope
+    -
+        Name: Route 120 South Entrance
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 121
+    -
+        Name: Route 120 South
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 120 South Entrance
+        TrainerList:
+             - Colin
+             - Angelica
+             - Tsunao
+             - Jenna
+             - Jennifer
+             - Carlos
+             - Brandon 1
+             - Keigo
+             - Chip
+        Sublocations:
+            -
+                Name: Route 120 Nugget
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 120 South
+                NormalItem: ITEM_NUGGET
+                Code: |
+                    Route120_EventScript_1B161A:: @ 81B161A
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 120 Full Heal
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 120 South
+                NormalItem: ITEM_FULL_HEAL
+                Code: |
+                    Route120_EventScript_1B1627:: @ 81B1627
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 120 Hyper Potion
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 120 South
+                NormalItem: ITEM_HYPER_POTION
+                Code: |
+                    Route120_EventScript_1B1634:: @ 81B1634
+                        giveitem_std ITEMNAME, 1, 1
+                        end

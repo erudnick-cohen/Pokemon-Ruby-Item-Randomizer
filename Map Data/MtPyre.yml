@@ -1,0 +1,207 @@
+Location:
+    -
+        Name: Mt. Pyre
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 121
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+        WildTableList:
+            - MAP_ROUTE122
+            - MAP_MT_PYRE_1F
+            - MAP_MT_PYRE_2F
+            - MAP_MT_PYRE_3F
+            - MAP_MT_PYRE_4F
+            - MAP_MT_PYRE_5F
+            - MAP_MT_PYRE_6F
+            - MAP_MT_PYRE_EXTERIOR
+        TrainerList:
+            - Mark
+            - DezAndLuke
+            - Kayla
+            - William
+            - Atsushi
+            - Tasha
+            - Valerie 1
+            - Grunt 49
+            - Grunt 50
+            - Grunt 51
+            - Grunt 22
+            - Grunt 23
+            - Grunt 24
+        Sublocations:
+            -
+                Name: Mt. Pyre Ultra Ball
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Mt. Pyre
+                NormalItem: ITEM_ULTRA_BALL
+                Code: |
+                    MtPyre_2F_EventScript_1B1933:: @ 81B1933
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Mt. Pyre Super Repel
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Mt. Pyre
+                NormalItem: ITEM_SUPER_REPEL
+                Code: |
+                    MtPyre_3F_EventScript_1B1940:: @ 81B1940
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Mt. Pyre Sea Incense
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Mt. Pyre
+                NormalItem: ITEM_SEA_INCENSE
+                Code: |
+                    MtPyre_4F_EventScript_1B194D:: @ 81B194D
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Mt. Pyre Lax Incense
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Mt. Pyre
+                NormalItem: ITEM_LAX_INCENSE
+                Code: |
+                    MtPyre_5F_EventScript_1B195A:: @ 81B195A
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Shadow Ball TM
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Mt. Pyre
+                NormalItem: ITEM_TM30_SHADOW_BALL
+                Code: |
+                    MtPyre_6F_EventScript_1B1967:: @ 81B1967
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Mt. Pyre Max Potion
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Mt. Pyre
+                NormalItem: ITEM_MAX_POTION
+                Code: |
+                    MtPyre_Exterior_EventScript_1B1974:: @ 81B1974
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Skill Swap TM
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Mt. Pyre
+                NormalItem: ITEM_TM48_SKILL_SWAP
+                Code: |
+                    MtPyre_Exterior_EventScript_1B1981:: @ 81B1981
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Cleanse Tag
+                ScriptFileName: data/maps/MtPyre_1F/scripts.inc
+                TextFileName: data/maps/MtPyre_1F/text.inc
+                Type: Item
+                LocationReqs:
+                    - Mt. Pyre
+                WildTableList: 
+                NormalItem: ITEM_CLEANSE_TAG
+                Code: |
+                    MtPyre_1F_EventScript_15D323:: @ 815D323
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_CLEANSE_TAG, MtPyre_1F_EventScript_15D352
+                        msgbox MtPyre_1F_Text_196151, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq MtPyre_1F_EventScript_1A029B
+                        setflag FLAG_RECEIVED_CLEANSE_TAG
+                        release
+                Text: |
+                    MtPyre_1F_Text_1961CE:: @ 81961CE
+                        .string "Have a POKéMON hold that\n"
+                        .string "ITEMNAME.\p"
+                        .string "It will help ward off wild POKéMON.$"
+            -
+                Name: Red or Blue Orb
+                ScriptFileName: data/maps/MtPyre_Summit/scripts.inc
+                TextFileName: data/text/magma_summit.inc
+                Type: Item
+                LocationReqs:
+                    - Mt. Pyre
+                WildTableList: 
+                Code: |
+                    MtPyre_Summit_EventScript_15D4E1:: @ 815D4E1
+                        applymovement 255, MtPyre_Summit_Movement_1A0841
+                        waitmovement 0
+                        applymovement 2, MtPyre_Summit_Movement_1A0845
+                        waitmovement 0
+                        delay 50
+                        compare VAR_0x8008, 0
+                        call_if_eq MtPyre_Summit_EventScript_15D593
+                        compare VAR_0x8008, 1
+                        call_if_eq MtPyre_Summit_EventScript_15D59E
+                        compare VAR_0x8008, 2
+                        call_if_eq MtPyre_Summit_EventScript_15D59F
+                        .ifdef SAPPHIRE
+                        msgbox UnknownString_81B52B0, 4
+                        .else
+                        msgbox MtPyre_Summit_Text_1B5EEC, 4
+                        .endif
+                        closemessage
+                        fadescreen 1
+                        removeobject 2
+                        removeobject 4
+                        removeobject 5
+                        removeobject 6
+                        setflag FLAG_HIDE_LEADER_MT_PYRE_SUMMIT
+                        setflag FLAG_HIDE_GRUNTS_MT_PYRE_SUMMIT
+                        fadescreen 0
+                        delay 20
+                        call MtPyre_Summit_EventScript_15D57A
+                        compare VAR_0x8008, 0
+                        call_if_eq MtPyre_Summit_EventScript_15D5AA
+                        compare VAR_0x8008, 1
+                        call_if_eq MtPyre_Summit_EventScript_15D5BF
+                        compare VAR_0x8008, 2
+                        call_if_eq MtPyre_Summit_EventScript_15D5CA
+                        .ifdef SAPPHIRE
+                        msgbox UnknownString_81B53AB, 4
+                        .else
+                        msgbox MtPyre_Summit_Text_1B5FE6, 4
+                        .endif
+                        giveitem_std ITEMNAME
+                        setflag FLAG_RECEIVED_RED_OR_BLUE_ORB
+                        releaseall
+                        end
+                Text: |
+                    MtPyre_Summit_Text_1B5FE6:: @ 81B5FE6
+                        .string "Oh, no...\n"
+                        .string "This cannot happen...\p"
+                        .string "How could they take the BLUE ORB?\p"
+                        .string "The BLUE ORB and ITEMNAME must never\n"
+                        .string "be separated. They belong together.\p"
+                        .string "... ... ... ... ... ... ... ...\n"
+                        .string "Hmm...\p"
+                        .string "Fine!\n"
+                        .string "You take the remaining ITEMNAME.\p"
+                        .string "Please take after that foul man and\n"
+                        .string "get the other ORB back!$"
+
+                    MtPyre_Summit_Text_1B60F9:: @ 81B60F9
+                        .string "The RED ORB you have been entrusted\n"
+                        .string "with and the stolen BLUE ORB...\p"
+                        .string "They must never be apart...\n"
+                        .string "Something terrible will happen...$"

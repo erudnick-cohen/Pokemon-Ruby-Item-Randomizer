@@ -1,0 +1,210 @@
+Location:
+    -
+        Name: Route 119 South
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 118 East Beach
+        TrainerList:
+             - Grunt 52
+             - Grunt 25
+             - Grunt 43
+             - Grunt 16
+             - Grunt 17
+             - Grunt 44
+             - Grunt 45
+             - Grunt 18
+             - Courtney 1
+             - Shelly 1
+             - Kent
+             - Greg
+             - Donald
+             - Taylor
+             - Doug
+             - Brent
+             - Eugene
+             - Catherine 1
+             - Jackson 1
+             - Phil
+             - Takashi
+             - Hugh
+        WildTableList:
+            - MAP_ROUTE119
+        Sublocations:
+            -
+                Name: Route 119 Super Repel
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 119 South
+                NormalItem: ITEM_SUPER_REPEL
+                Code: |
+                    Route119_EventScript_1B15BF:: @ 81B15BF
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 119 Zinc
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 119 South
+                NormalItem: ITEM_ZINC
+                Code: |
+                    Route119_EventScript_1B15CC:: @ 81B15CC
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 119 Elixir 1
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 119 South
+                NormalItem: ITEM_ELIXIR
+                Code: |
+                    Route119_EventScript_1B15D9:: @ 81B15D9
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 119 Leaf Strone
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 119 South
+                NormalItem: ITEM_LEAF_STONE
+                Code: |
+                    Route119_EventScript_1B15E6:: @ 81B15E6
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 119 Hyper Potion 1
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 119 South
+                NormalItem: ITEM_HYPER_POTION
+                Code: |
+                    Route119_EventScript_1B1600:: @ 81B1600
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 119 Hyper Potion 2
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 119 South
+                NormalItem: ITEM_HYPER_POTION
+                Code: |
+                    Route119_EventScript_1B160D:: @ 81B160D
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+    -
+        Name: Route 119 North Entrance
+        LocationReqs:
+            - Route 119 South
+    -
+        Name: Route 119 North Entrance
+        LocationReqs:
+            - Fortree City
+    -
+        Name: Route 119 North
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 119 North Entrance
+        TrainerList:
+             - Yasu
+             - Hideo
+             - May 3
+             - May 6
+             - May 9
+             - Brendan 3
+             - Brendan 6
+             - Brendan 9
+        Sublocations:
+            -
+                Name: Route 119 Rare Candy
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 119 South
+                FlagReqs:
+                    - Balance Badge
+                    - Rain Badge
+                ItemReqs:
+                    - Surf
+                    - Waterfall
+                    - Acro Bike
+                NormalItem: ITEM_RARE_CANDY
+                Code: |
+                    Route119_EventScript_1B15F3:: @ 81B15F3
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Fly HM
+                ScriptFileName: data/maps/Route119/scripts.inc
+                TextFileName: data/maps/Route119/text.inc
+                Type: Item
+                LocationReqs:
+                    - Route 105
+                NormalItem: ITEM_HM02_FLY
+                Code: |
+                    Route119_EventScript_151352:: @ 8151352
+                        giveitem_std ITEMNAME
+                        setflag FLAG_RECEIVED_HM02
+                        return
+                Text: |
+                    Route119_Text_171214:: @ 8171214
+                        .string "MAY: Use ITEMNAME, and your POKéMON will\n"
+                        .string "instantly carry you to any town you've\l"
+                        .string "already visited.\p"
+                        .string "But, to use ITEMNAME, you have to get the\n"
+                        .string "GYM BADGE from FORTREE CITY.\l"
+                        .string "That's important, so don't forget.\p"
+                        .string "You should ITEMNAME home and visit\n"
+                        .string "LITTLEROOT for a change.\p"
+                        .string "I bet your mom's worried about you,\n"
+                        .string "{PLAYER}{KUN}.\p"
+                        .string "Well, let's meet again somewhere!$"
+
+                    Route119_Text_171358:: @ 8171358
+                        .string "BRENDAN: {PLAYER}! So this is where\n"
+                        .string "you've been looking for POKéMON?\p"
+                        .string "Let me see how good you got.\n"
+                        .string "I'll test you!\p"
+                        .string "Now!\n"
+                        .string "It's a battle, so battle!$"
+
+                    Route119_Text_1713E2:: @ 81713E2
+                        .string "Hmm...\n"
+                        .string "You've gotten pretty darn decent.$"
+
+                    Route119_Text_17140B:: @ 817140B
+                        .string "BRENDAN: I'd say you're good enough\n"
+                        .string "to search for POKéMON anywhere.\p"
+                        .string "Here, I'll give you this.\n"
+                        .string "Try it out.$"
+
+                    Route119_Text_171475:: @ 8171475
+                        .string "BRENDAN: Use ITEMNAME, and your POKéMON\n"
+                        .string "instantly carries you to any town\l"
+                        .string "you've already visited.\p"
+                        .string "But you need the FORTREE GYM BADGE \n"
+                        .string "to do that.\p"
+                        .string "Anyway, I have to move along.$"
+
+                    Route119_Text_171520:: @ 8171520
+                        .string "We're standing lookout here.\p"
+                        .string "Hey, you! Stay away from the WEATHER\n"
+                        .string "INSTITUTE. It's not safe.$"
+
+                    Route119_Text_17157C:: @ 817157C
+                        .string "Lookout duty is surprisingly boring.\p"
+                        .string "Hey, you! Please don't go near the\n"
+                        .string "WEATHER INSTITUTE.$"
+
+                    Route119_Text_1715D7:: @ 81715D7
+                        .string "I thought you ITEMNAME by catching a whole\n"
+                        .string "flock of BIRD POKéMON, and then\l"
+                        .string "hanging on to them somehow.\p"
+                        .string "But it turns out there's an HM move\n"
+                        .string "called ITEMNAME!\p"
+                        .string "I wish I'd known about that a long\n"
+                        .string "time ago...$"

@@ -1,0 +1,37 @@
+Location:
+    -
+        Name: Route 121 Entrance
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 120 South
+    -
+        Name: Route 121 Entrance
+        HasPKMN: Yes
+        LocationReqs:
+            - Lilycove City
+    -
+        Name: Route 121
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 121 Entrance
+        TrainerList:
+             - Tammy
+             - Jessica 1
+             - KateAndJoy
+             - Walter 1
+             - Vanessa
+        WildTableList:
+            - MAP_ROUTE121
+        Sublocations:
+            -
+                Name: Route 121 Carbos
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 121
+                ItemReqs:
+                NormalItem: ITEM_CARBOS
+                Code: |
+                    Route121_EventScript_1B164E:: @ 81B164E
+                        giveitem_std ITEMNAME, 1, 1
+                        end

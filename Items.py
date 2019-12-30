@@ -2,7 +2,7 @@ import yaml
 
 def makeItemCodeDict():
 	#hardcoding key item lookups for now, pass as parameter in future
-	keyItemMap = {'Rock Smash': 'ITEM_HM06_ROCK_SMASH','Surf': 'ITEM_HM03_SURF','Dive': 'ITEM_HM08_DIVE','Cut':'ITEM_HM01_CUT', 'Strength':'ITEM_HM04_STRENGTH', 'Letter':'ITEM_LETTER', 'Devon Goods':'ITEM_DEVON_GOODS', 'Basement Key':'ITEM_BASEMENT_KEY', 'Flash':'ITEM_HM05_FLASH','Acro Bike':'ITEM_ACRO_BIKE', 'Mach Bike' : 'ITEM_MACH_BIKE','Meteorite':'ITEM_METEORITE','Go-Goggles':'ITEM_GO_GOGGLES', 'Storage Key':'ITEM_STORAGE_KEY','Scanner':'ITEM_SCANNER', 'Room 1 Key' : 'ITEM_ROOM_1_KEY', 'Room 2 Key' : 'ITEM_ROOM_2_KEY', 'Room 4 Key' : 'ITEM_ROOM_4_KEY', 'Room 6 Key' : 'ITEM_ROOM_6_KEY'}
+	keyItemMap = {'Rock Smash': 'ITEM_HM06_ROCK_SMASH','Surf': 'ITEM_HM03_SURF','Dive': 'ITEM_HM08_DIVE','Cut':'ITEM_HM01_CUT', 'Strength':'ITEM_HM04_STRENGTH', 'Letter':'ITEM_LETTER','Pokeblock Case' : 'ITEM_POKEBLOCK_CASE', 'Orb' :'ITEM_RED_OR_BLUE_ORB', 'Devon Goods':'ITEM_DEVON_GOODS', 'Devon Scope':'ITEM_DEVON_SCOPE', 'Basement Key':'ITEM_BASEMENT_KEY', 'Flash':'ITEM_HM05_FLASH','Acro Bike':'ITEM_ACRO_BIKE', 'Mach Bike' : 'ITEM_MACH_BIKE','Meteorite':'ITEM_METEORITE','Go-Goggles':'ITEM_GO_GOGGLES', 'Storage Key':'ITEM_STORAGE_KEY','Scanner':'ITEM_SCANNER', 'Room 1 Key' : 'ITEM_ROOM_1_KEY', 'Room 2 Key' : 'ITEM_ROOM_2_KEY', 'Room 4 Key' : 'ITEM_ROOM_4_KEY', 'Room 6 Key' : 'ITEM_ROOM_6_KEY'}
 	itemCodeDict = {}
 	
 	#progress items

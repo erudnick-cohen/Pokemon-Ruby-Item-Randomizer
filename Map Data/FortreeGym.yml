@@ -1,0 +1,34 @@
+Location:
+    -
+        Name: Fortree Gym TM
+        ScriptFileName: data/maps/FortreeCity_Gym/scripts.inc
+        TextFileName: data/maps/FortreeCity_Gym/text.inc
+        HasPKMN: Yes
+        Type: Item
+        ItemReqs:
+            - Devon Scope
+        LocationReqs:
+            - Fortree City
+        TrainerList:
+             - Cole
+             - Zane
+             - Axle
+             - Sadie
+             - Andy
+             - Flannery
+        NormalItem: ITEM_TM40_AERIAL_ACE
+        Code: |
+            FortreeCity_Gym_EventScript_157F3E:: @ 8157F3E
+                giveitem_std ITEMNAME
+                compare VAR_RESULT, 0
+                goto_if_eq FortreeCity_Gym_EventScript_1A029B
+                msgbox FortreeCity_Gym_Text_185F4A, 4
+                setflag FLAG_RECEIVED_TM40
+                release
+                end
+        Text: |
+            FortreeCity_Gym_Text_185F4A:: @ 8185F4A
+                .string "TM40 contains ITEMNAME.\p"
+                .string "Its speed...\n"
+                .string "No POKéMON should be able to avoid it.$"
+        Sublocations:

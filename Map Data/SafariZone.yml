@@ -1,0 +1,59 @@
+Location:
+    -
+        Name: Safari Zone
+        HasPKMN: No
+        LocationReqs:
+            - Route 121
+        ItemReqs:
+            - Pokeblock Case
+        WildTableList:
+            - MAP_SAFARI_ZONE_NORTHWEST
+            - MAP_SAFARI_ZONE_NORTHEAST
+            - MAP_SAFARI_ZONE_SOUTHWEST
+            - MAP_SAFARI_ZONE_SOUTHEAST
+        Sublocations:
+            -
+                Name: Solarbeam TM
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Safari Zone
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+                    - Mach Bike
+                NormalItem: ITEM_TM22_SOLARBEAM
+                Code: |
+                    SafariZone_Northwest_EventScript_1B190C:: @ 81B190C
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+                Name: Safari Zone Calcium
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Safari Zone
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+                    - Acro Bike
+                NormalItem: ITEM_CALCIUM
+                Code: |
+                    SafariZone_Northeast_EventScript_1B1919:: @ 81B1919
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+                Name: Safari Zone Max Revive
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Safari Zone
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+                NormalItem: ITEM_MAX_REVIVE
+                Code: |
+                    SafariZone_Southwest_EventScript_1B1926:: @ 81B1926
+                        giveitem_std ITEMNAME, 1, 1
+                        end
