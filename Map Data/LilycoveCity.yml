@@ -1,0 +1,53 @@
+Location:
+    -
+        Name: Lilycove Entrance
+        LocationReqs:
+            - Route 121
+    -
+        Name: Lilycove Entrance
+        LocationReqs:
+            - S.S. Tidal
+    -
+        Name: Lilycove City
+        LocationReqs:
+            - Lilycove Entrance
+        TrainerList:
+             - May 10
+             - May 11
+             - May 12
+             - Brendan 10
+             - Brendan 11
+             - Brendan 12
+        Sublocations:
+            -
+                Name: Rest TM
+                ScriptFileName: data/maps/LilycoveCity_House2/scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Lilycove City
+                WildTableList: 
+                NormalItem: ITEM_TM44_REST
+                Code: |
+                    LilycoveCity_House2_EventScript_159BA3:: @ 8159BA3
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_TM44, LilycoveCity_House2_EventScript_159BDA
+                        msgbox LilycoveCity_House2_Text_18B83C, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq LilycoveCity_House2_EventScript_1A029B
+                        setflag FLAG_RECEIVED_TM44
+                        msgbox LilycoveCity_House2_Text_18B883, 4
+                        release
+                        end
+            -
+                Name: Lilycove City Repel
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Lilycove City
+                NormalItem: ITEM_MAX_REPEL
+                Code: |
+                    LilycoveCity_EventScript_1B1738:: @ 81B1738
+                        giveitem_std ITEMNAME, 1, 1
+                        end

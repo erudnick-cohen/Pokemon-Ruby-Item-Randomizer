@@ -1,0 +1,61 @@
+Location:
+    -
+        Name: S.S. Tidal Entrance
+        LocationReqs:
+            - Route 119 South
+        ItemReqs:
+            - S.S. Ticket
+    -
+        Name: S.S. Tidal Entrance
+        LocationReqs:
+            - Lilycove City
+        ItemReqs:
+            - S.S. Ticket
+    -
+        Name: S.S. Tidal
+        HasPKMN: Yes
+        LocationReqs:
+            - S.S. Tidal Entrance
+        TrainerList:
+             - LeaAndJed
+             - Garret
+             - Tucker
+             - Colton
+             - Anette
+             - Thomas
+             - Phillip
+             - Leonard
+        Sublocations:
+            -
+                Name: Snatch TM
+                ScriptFileName: data/maps/SSTidalRooms/scripts.inc
+                TextFileName: data/maps/SSTidalRooms/text.inc
+                Type: Item
+                LocationReqs:
+                    - S.S. Tidal
+                NormalItem: ITEM_TM49_SNATCH
+                Code: |
+                    SSTidalRooms_EventScript_15FF06:: @ 815FF06
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_TM49, SSTidalRooms_EventScript_15FF3D
+                        msgbox SSTidalRooms_Text_199B65, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq SSTidalRooms_EventScript_1A029B
+                        setflag FLAG_RECEIVED_TM49
+                        msgbox SSTidalRooms_Text_199C1A, 4
+                        release
+                        end
+                Text: |
+                    SSTidalRooms_Text_199B65:: @ 8199B65
+                        .string "Uh... Hi! I... I'm not acting suspicious!\n"
+                        .string "Uh... You can have this! For free!\p"
+                        .string "It... Honestly, I didn't ITEMNAME it from\n"
+                        .string "someone! I'd never do such a thing!\l"
+                        .string "It's clean! You can use it!$"
+
+                    SSTidalRooms_Text_199C1A:: @ 8199C1A
+                        .string "ITEMNAME steals the foe's move in\n"
+                        .string "advance, and then uses the ITEMNAMEED\l"
+                        .string "move on the foe.$"
