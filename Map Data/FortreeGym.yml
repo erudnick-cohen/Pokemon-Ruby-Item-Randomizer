@@ -10,12 +10,11 @@ Location:
         LocationReqs:
             - Fortree City
         TrainerList:
-             - Cole
-             - Zane
-             - Axle
-             - Sadie
-             - Andy
-             - Flannery
+             - Jared
+             - Kylee
+             - Terrell
+             - Will
+             - Winona
         NormalItem: ITEM_TM40_AERIAL_ACE
         Code: |
             FortreeCity_Gym_EventScript_157F3E:: @ 8157F3E
