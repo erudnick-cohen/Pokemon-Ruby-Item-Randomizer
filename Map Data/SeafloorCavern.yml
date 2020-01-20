@@ -1,0 +1,63 @@
+Location:
+    -
+        Name: Seafloor Cavern
+        LocationReqs:
+            - Route 128
+        FlagReqs:
+            - Balance Badge
+            - Mind Badge
+        ItemReqs:
+            - Surf
+            - Dive
+        WildTableList: 
+            - MAP_SEAFLOORCAVERN_ENTRANCE
+        Sublocations:
+            - 
+                Name: Seafloor Cavern Inner
+                HasPKMN: Yes
+                LocationReqs:
+                    - Seafloor Cavern
+                FlagReqs:
+                    - Balance Badge
+                    - Mind Badge
+                    - Dynamo Badge
+                    - Heat Badge
+                ItemReqs:
+                    - Surf
+                    - Dive
+                    - Rock Smash
+                    - Strength
+                WildTableList:
+                    - MAP_SEAFLOORCAVERN_ROOM1
+                    - MAP_SEAFLOORCAVERN_ROOM2
+                    - MAP_SEAFLOORCAVERN_ROOM3
+                    - MAP_SEAFLOORCAVERN_ROOM4
+                    - MAP_SEAFLOORCAVERN_ROOM5
+                    - MAP_SEAFLOORCAVERN_ROOM6
+                    - MAP_SEAFLOORCAVERN_ROOM7
+                    - MAP_SEAFLOORCAVERN_ROOM8
+                    - MAP_SEAFLOORCAVERN_ROOM9
+                TrainerList:
+                    - Grunt 5
+                    - Grunt 6
+                    - Grunt 7
+                    - Grunt 32
+                    - Grunt 33
+                    - Grunt 34
+                    - Courtney 2
+                    - Shelly 2
+                    - Maxie 2
+                    - Archie 2
+            -
+                Name: Earthquake TM
+                Type: Item
+                FlagReqs:
+                HasPKMN: No
+                ScriptFileName: data/item_ball_scripts.inc
+                NormalItem: ITEM_TM26_EARTHQUAKE
+                LocationReqs:
+                    - Seafloor Cavern Inner
+                Code: |
+                    SeafloorCavern_Room9_EventScript_1B1A37:: @ 81B1A37
+                        giveitem_std ITEMNAME, 1, 1
+                        end

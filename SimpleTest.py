@@ -37,7 +37,11 @@ Rain = Badge.Badge()
 Rain.isTrash = False
 Rain.Name = 'Rain Badge'
 Rain.Flag = 'FLAG_BADGE08_GET';
-BadgeDict = {'Stone Badge' : Stone, 'Dynamo Badge' : Dynamo, 'Knuckle Badge': Knuckle, 'Balance Badge': Balance, 'Heat Badge':Heat,'Mind Badge':Mind,'Rain Badge':Rain}
+Wing = Badge.Badge()
+Wing.isTrash = True
+Wing.Name = 'Wing Badge'
+Wing.Flag = 'FLAG_BADGE06_GET';
+BadgeDict = {'Stone Badge' : Stone, 'Dynamo Badge' : Dynamo, 'Knuckle Badge': Knuckle, 'Balance Badge': Balance, 'Heat Badge':Heat,'Mind Badge':Mind,'Rain Badge':Rain, 'Wing Badge':Wing}
 result = RandomizeItems.RandomizeItems('None',LocationList,progressItems,trashItems,BadgeDict,inputFlags = ['Kanto Mode'])
 
 RandomizerRom.ResetRom()

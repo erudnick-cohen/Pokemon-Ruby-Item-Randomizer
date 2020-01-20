@@ -1,0 +1,19 @@
+Location:
+    -
+        Name: Route 128
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 124
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+        TrainerList:
+             - Ruben
+             - Alexa
+             - Wayne
+             - Isaiah 1
+             - Katelyn 1
+        WildTableList: 
+            - MAP_ROUTE128
+        Sublocations:

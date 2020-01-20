@@ -1,0 +1,37 @@
+Location:
+    -
+        Name: Sootopolis City
+        LocationReqs:
+            - Route 126
+        FlagReqs:
+            - Balance Badge
+            - Mind Badge
+        ItemReqs:
+            - Surf
+            - Dive
+        Sublocations:
+            -
+                Name: Brick Break TM
+                ScriptFileName: data/maps/SootopolisCity_House1/scripts.inc
+                TextFileName: data/maps/SootopolisCity_House1/text.inc
+                Type: Item
+                LocationReqs:
+                    - Sootopolis City
+                    - Groudon Battle
+                WildTableList: 
+                NormalItem: ITEM_TM31_BRICK_BREAK
+                Code: |
+                    SootopolisCity_House1_EventScript_15B29B:: @ 815B29B
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_TM31, SootopolisCity_House1_EventScript_15B2C7
+                        msgbox SootopolisCity_House1_Text_18F991, 4
+                        giveitem_std ITEMNAME
+                        setflag FLAG_RECEIVED_TM31
+                        msgbox SootopolisCity_House1_Text_18FA03, 4
+                        release
+                        end
+                Text: |
+                    SootopolisCity_House1_Text_18FA03:: @ 818FA03
+                        .string "TM31 contains ITEMNAME! It's a move\n"
+                        .string "so horrible that I can't describe it.$"

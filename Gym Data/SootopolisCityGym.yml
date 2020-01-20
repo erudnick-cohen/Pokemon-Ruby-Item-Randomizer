@@ -1,0 +1,68 @@
+Location:
+    -
+        Name: Sootopolis City Gym Badge
+        ScriptFileName: data/maps/SootopolisCity_Gym_1F/scripts.inc
+        LocationReqs:
+            - Sootopolis Gym TM
+        Type: Gym
+        GymType: Water
+        HasPKMN: No
+        WildTableList:
+        FlagReqs:
+        ItemReqs:
+        FlagsSet:
+        ReachableReqs:
+        ItemUnlock: Waterfall
+        InfeasibleBadges:
+        NormalBadge: Rain Badge
+        BadgeLine: |
+            SootopolisCity_Gym_1F_EventScript_15B02D:: @ 815B02D
+                message SootopolisCity_Gym_1F_Text_18F342
+                waitmessage
+                call SootopolisCity_Gym_1F_EventScript_1A02C5
+                msgbox SootopolisCity_Gym_1F_Text_18F36B, 4
+                setflag FLAG_DEFEATED_SOOTOPOLIS_GYM
+                setflag BADGEFLAG
+                setvar VAR_0x8008, 8
+                call SootopolisCity_Gym_1F_EventScript_1A01C0
+                goto SootopolisCity_Gym_1F_EventScript_15B056
+                end
+        Code:
+        Text:
+            -
+                File: data/maps/SootopolisCity_Gym_1F/text.inc
+                Text: |
+                    SootopolisCity_Gym_1F_Text_18F282:: @ 818F282
+                        .string "Bravo.\p"
+                        .string "I realize now your authenticity and\n"
+                        .string "magnificence as a POKéMON TRAINER.\p"
+                        .string "I find much joy in having met you and\n"
+                        .string "your POKéMON.\p"
+                        .string "You have proven yourself worthy of\n"
+                        .string "the BADGENAME. Accept it.$"
+
+                    SootopolisCity_Gym_1F_Text_18F342:: @ 818F342
+                        .string "{PLAYER} received the BADGENAME\n"
+                        .string "from WALLACE.$"
+            -
+                File: data/maps/SootopolisCity_Gym_1F/text.inc
+                Text: |
+                    SootopolisCity_Gym_1F_Text_18E8A5:: @ 818E8A5
+                        .string "Yo! How's it going, CHAMPION-\n"
+                        .string "bound {PLAYER}?\p"
+                        .string "SOOTOPOLIS's GYM LEADER WALLACE is\n"
+                        .string "a master of GYMTYPE-type POKéMON.\p"
+                        .string "And, to get to WALLACE, an icy floor\n"
+                        .string "will hamper your progress...\p"
+                        .string "Listen, I'm sorry, but that's all the\n"
+                        .string "advice that I have for you.\p"
+                        .string "The rest of the way, you have to\n"
+                        .string "go for it yourself!$"
+            -
+                File: data/maps/SootopolisCity/text.inc
+                Text: |
+                    SootopolisCity_Text_16A6C7:: @ 816A6C7
+                        .string "SOOTOPOLIS CITY POKéMON GYM\n"
+                        .string "LEADER: WALLACE\p"
+                        .string "“Artist, and lover of GYMTYPE.”$"
+                

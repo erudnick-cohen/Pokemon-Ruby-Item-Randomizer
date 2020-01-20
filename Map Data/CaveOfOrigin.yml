@@ -1,0 +1,29 @@
+Location:
+    -
+        Name: Cave of Origin
+        HasPKMN: Yes
+        LocationReqs:
+            - Seafloor Cavern Inner
+        WildTableList: 
+            - MAP_CAVEOFORIGIN_ENTRANCE
+            - MAP_CAVEOFORIGIN_B1F
+            - MAP_CAVEOFORIGIN_B2F
+            - MAP_CAVEOFORIGIN_B3F
+        Sublocations:
+            -
+                Name: Waterfall HM
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Cave of Origin
+                Type: Item
+                Code: |
+                    CaveOfOrigin_B3F_EventScript_1B1A44:: @ 81B1A44
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            - 
+                Name: Groudon Battle
+                LocationReqs:
+                    - Cave of Origin
+                ItemReqs:
+                    - Orb
+           

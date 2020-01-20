@@ -1,0 +1,34 @@
+Location:
+    -
+        Name: Route 126
+        HasPKMN: Yes
+        LocationReqs:
+            - Route 124
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+        TrainerList:
+             - Barry
+             - Dean
+             - Brenda
+        WildTableList: 
+            - MAP_ROUTE126
+        Sublocations:
+            -
+                Name: Route 126 Green Shard
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 126
+                FlagReqs:
+                    - Mind Badge
+                ItemReqs:
+                    - Dive
+                Type: Item
+                NormalItem: ITEM_GREEN_SHARD
+                Code: |
+                    Route126_EventScript_1B16B6:: @ 81B16B6
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+                TrainerList:
+                    - Nikki
