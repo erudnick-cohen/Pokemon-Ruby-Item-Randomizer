@@ -64,7 +64,7 @@ Location:
                         giveitem_std ITEMNAME, 1, 1
                         end
             -
-                Name: Route 119 Leaf Strone
+                Name: Route 119 Leaf Stone
                 ScriptFileName: data/item_ball_scripts.inc
                 Type: Item
                 LocationReqs:

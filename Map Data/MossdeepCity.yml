@@ -1,0 +1,153 @@
+Location:
+    -
+        Name: Mossdeep City
+        LocationReqs:
+            - Route 124
+        Sublocations:
+            -
+                Name: King's Rock
+                ScriptFileName: data/maps/MossdeepCity/scripts.inc
+                TextFileName: data/maps/MossdeepCity/text.inc
+                Type: Item
+                LocationReqs:
+                    - Mossdeep City
+                WildTableList: 
+                NormalItem: ITEM_KINGS_ROCK
+                Code: |
+                    MossdeepCity_EventScript_14D027:: @ 814D027
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_KINGS_ROCK, MossdeepCity_EventScript_14D069
+                        msgbox MossdeepCity_Text_1690A9, MSGBOX_YESNO
+                        compare VAR_RESULT, NO
+                        goto_if_eq MossdeepCity_EventScript_14D073
+                        msgbox MossdeepCity_Text_169117, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq MossdeepCity_EventScript_1A029B
+                        setflag FLAG_RECEIVED_KINGS_ROCK
+                        release
+                        end
+                Text: |
+                    MossdeepCity_Text_1690A9:: @ 81690A9
+                        .string "I got this from STEVEN, but I don't\n"
+                        .string "know what it's good for.\p"
+                        .string "I think it's called ITEMNAME.\n"
+                        .string "Do you want it?$"
+            -
+                Name: Super Rod
+                ScriptFileName: data/maps/MossdeepCity_House3/scripts.inc 
+                TextFileName: data/maps/MossdeepCity_House3/text.inc
+                Type: Item
+                LocationReqs:
+                    - Mossdeep City
+                NormalItem: ITEM_SUPER_ROD
+                Code: |
+                    MossdeepCity_House3_EventScript_15A972:: @ 815A972
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_SUPER_ROD, MossdeepCity_House3_EventScript_15A9B1
+                        msgbox MossdeepCity_House3_Text_18D909, MSGBOX_YESNO
+                        compare VAR_RESULT, NO
+                        goto_if_eq MossdeepCity_House3_EventScript_15A9BB
+                        msgbox MossdeepCity_House3_Text_18D9A9, 4
+                        giveitem_std ITEMNAME
+                        setflag FLAG_RECEIVED_SUPER_ROD
+                        msgbox MossdeepCity_House3_Text_18D9E3, 4
+                        release
+                        end
+                Text: |
+                    MossdeepCity_House3_Text_18D909:: @ 818D909
+                        .string "Hey there, TRAINER!\n"
+                        .string "A ITEMNAME really is super!\p"
+                        .string "Say all you want, but this baby can\n"
+                        .string "catch POKéMON off the seafloor!\p"
+                        .string "What do you think?\n"
+                        .string "You want it, don't you?$"
+
+                    MossdeepCity_House3_Text_18D9A9:: @ 818D9A9
+                        .string "You bet, you bet!\n"
+                        .string "After all, a ITEMNAME is really super!$"
+
+                    MossdeepCity_House3_Text_18D9E3:: @ 818D9E3
+                        .string "If there's any water, try dropping in\n"
+                        .string "your ITEMNAME and see what bites!$"
+
+                    MossdeepCity_House3_Text_18DA26:: @ 818DA26
+                        .string "Hunh?\n"
+                        .string "Don't you like to fish?$"
+
+                    MossdeepCity_House3_Text_18DA44:: @ 818DA44
+                        .string "Go after the seafloor POKéMON with\n"
+                        .string "your ITEMNAME.$"
+            -
+                Name: Dive HM
+                ScriptFileName: data/maps/MossdeepCity_StevensHouse/scripts.inc 
+                TextFileName: data/maps/MossdeepCity_StevensHouse/text.inc
+                Type: Item
+                LocationReqs:
+                    - Mossdeep City
+                Code: |
+                    MossdeepCity_StevensHouse_EventScript_15AB20:: @ 815AB20
+                        giveitem_std ITEMNAME, 1, 1
+                        setflag FLAG_RECEIVED_HM08
+                        end
+                Text: |
+                    MossdeepCity_StevensHouse_Text_18DA77:: @ 818DA77
+                        .string "STEVEN: {PLAYER}{KUN}?\p"
+                        .string "Yes, this is my place. It's a little\n"
+                        .string "embarrassing how empty it is here.\p"
+                        .string "Oh, here, you should take this HM.\p"
+                        .string "It contains ITEMNAME.\n"
+                        .string "I've already taught my POKéMON.$"
+
+                    MossdeepCity_StevensHouse_Text_18DB22:: @ 818DB22
+                        .string "STEVEN: While you're using SURF, you\n"
+                        .string "should notice dark patches of water.\p"
+                        .string "Use ITEMNAME if you come to deep water\n"
+                        .string "like it. You'll drop to the seafloor.\p"
+                        .string "When you want to come back up, use\n"
+                        .string "ITEMNAME again.\p"
+                        .string "In some places, it won't be possible\n"
+                        .string "for you to surface, though.$"
+
+                    MossdeepCity_StevensHouse_Text_18DC25:: @ 818DC25
+                        .string "STEVEN: Apparently, there's an\n"
+                        .string "underwater cavern between\l"
+                        .string "MOSSDEEP and SOOTOPOLIS.\p"
+                        .string "You know, the one that CAPT. STERN\n"
+                        .string "found in his submarine.\p"
+                        .string "An underwater cavern...\p"
+                        .string "There might be some rare stones down\n"
+                        .string "there... I should go for a ITEMNAME...$"
+            -
+                Name: Mossdeep City Net Ball
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Mossdeep City
+                Type: Item
+                NormalItem: ITEM_NET_BALL
+                Code: |
+                    MossdeepCity_EventScript_1B1745:: @ 81B1745
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Mossdeep City Sun Stone
+                ScriptFileName: data/maps/MossdeepCity_SpaceCenter_1F/scripts.inc 
+                Type: Item
+                NormalItem: ITEM_SUN_STONE
+                LocationReqs:
+                    - Mossdeep City
+                Code: |
+                    MossdeepCity_SpaceCenter_1F_EventScript_15ABD5:: @ 815ABD5
+                        lock
+                        faceplayer
+                        goto_if_set FLAG_RECEIVED_SUN_STONE_MOSSDEEP, MossdeepCity_SpaceCenter_1F_EventScript_15AC0C
+                        msgbox MossdeepCity_SpaceCenter_1F_Text_18E335, 4
+                        giveitem_std ITEMNAME
+                        compare VAR_RESULT, 0
+                        goto_if_eq MossdeepCity_SpaceCenter_1F_EventScript_1A029B
+                        setflag FLAG_RECEIVED_SUN_STONE_MOSSDEEP
+                        msgbox MossdeepCity_SpaceCenter_1F_Text_18E39B, 4
+                        release
+                        end

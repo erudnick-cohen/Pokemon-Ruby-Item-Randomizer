@@ -1,0 +1,66 @@
+Location:
+    -
+        Name: Team Magma Base
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+        LocationReqs:
+            - Mt. Pyre
+        TrainerList:
+             - Grunt 1
+             - Grunt 2
+             - Grunt 3
+             - Grunt 4
+             - Grunt 26
+             - Grunt 27
+             - Grunt 28
+             - Grunt 29
+             - Grunt 30
+             - Grunt 31
+             - Grunt 53
+             - Grunt 54
+             - Tabitha 1
+             - Matt 1
+        Sublocations:
+            -
+                Name: Master Ball
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 123
+                NormalItem: ITEM_MASTER_BALL
+                Code: |
+                    MagmaHideout_B1F_EventScript_1B19C2:: @ 81B19C2
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+                Name: Team Magma Base Nugget
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 123
+                NormalItem: ITEM_NUGGET
+                Code: |
+                    MagmaHideout_B1F_EventScript_1B19CF:: @ 81B19CF
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+                Name: Team Magma Base Max Elixir
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 123
+                NormalItem: ITEM_MAX_ELIXIR
+                Code: |
+                    MagmaHideout_B1F_EventScript_1B19DC:: @ 81B19DC
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+                Name: Team Magma Base Nest Ball
+                ScriptFileName: data/item_ball_scripts.inc
+                Type: Item
+                LocationReqs:
+                    - Route 123
+                NormalItem: ITEM_NEST_BALL
+                Code: |
+                    MagmaHideout_B2F_EventScript_1B19E9:: @ 81B19E9
+                        giveitem_std ITEMNAME, 1, 1
+                        end

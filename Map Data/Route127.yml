@@ -1,0 +1,51 @@
+Location:
+    -
+        Name: Route 127
+        HasPKMN: Yes
+        LocationReqs:
+            - Mossdeep City
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+        TrainerList:
+             - Byron
+             - Connor
+             - Jonah
+             - Roger
+             - Henry
+             - Caleb
+             - Koji
+        WildTableList: 
+            - MAP_ROUTE127
+        Sublocations:
+            -
+                Name: Route 127 Zinc
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 127
+                FlagReqs:
+                    - Balance Badge
+                ItemReqs:
+                    - Surf
+                Type: Item
+                NormalItem: ITEM_ZINC
+                Code: |
+                    Route127_EventScript_1B16C3:: @ 81B16C3
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 127 Carbos
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 127
+                FlagReqs:
+                    - Mind Badge
+                ItemReqs:
+                    - Dive
+                Type: Item
+                NormalItem: ITEM_CARBOS
+                Code: |
+                    Route127_EventScript_1B16D0:: @ 81B16D0
+                        giveitem_std ITEMNAME, 1, 1
+                        end

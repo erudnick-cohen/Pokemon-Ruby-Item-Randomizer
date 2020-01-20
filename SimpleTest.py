@@ -7,7 +7,7 @@ from collections import defaultdict
 res = LoadLocationData.LoadDataFromFolder(".")
 trashItems = res[1]
 LocationList = res[0]
-progressItems = ['Cut','Surf','Dive','Letter','S.S. Ticket','Pokeblock Case', 'Orb','Devon Goods', 'Strength', 'Basement Key','Rock Smash', 'Flash','Devon Scope','Acro Bike','Mach Bike', 'Meteorite', 'Go-Goggles', 'Storage Key', 'Scanner','Room 1 Key','Room 2 Key','Room 4 Key','Room 6 Key']
+progressItems = ['Cut','Surf','Dive','Waterfall','Letter','S.S. Ticket','Pokeblock Case', 'Orb','Devon Goods', 'Strength', 'Basement Key','Rock Smash', 'Flash','Devon Scope','Acro Bike','Mach Bike', 'Meteorite', 'Go-Goggles', 'Storage Key', 'Scanner','Room 1 Key','Room 2 Key','Room 4 Key','Room 6 Key']
 print(res)
 Stone = Badge.Badge()
 Stone.isTrash = False
@@ -33,7 +33,11 @@ Mind = Badge.Badge()
 Mind.isTrash = False
 Mind.Name = 'Mind Badge'
 Mind.Flag = 'FLAG_BADGE07_GET';
-BadgeDict = {'Stone Badge' : Stone, 'Dynamo Badge' : Dynamo, 'Knuckle Badge': Knuckle, 'Balance Badge': Balance, 'Heat Badge':Heat,'Mind Badge':Mind}
+Rain = Badge.Badge()
+Rain.isTrash = False
+Rain.Name = 'Rain Badge'
+Rain.Flag = 'FLAG_BADGE08_GET';
+BadgeDict = {'Stone Badge' : Stone, 'Dynamo Badge' : Dynamo, 'Knuckle Badge': Knuckle, 'Balance Badge': Balance, 'Heat Badge':Heat,'Mind Badge':Mind,'Rain Badge':Rain}
 result = RandomizeItems.RandomizeItems('None',LocationList,progressItems,trashItems,BadgeDict,inputFlags = ['Kanto Mode'])
 
 RandomizerRom.ResetRom()

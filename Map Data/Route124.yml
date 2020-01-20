@@ -1,0 +1,65 @@
+Location:
+    -
+        Name: Route 124
+        HasPKMN: Yes
+        LocationReqs:
+            - Team Magma Base
+        FlagReqs:
+            - Balance Badge
+        ItemReqs:
+            - Surf
+        TrainerList:
+             - Grace
+             - RitaAndSam 1
+             - Spencer
+             - Jenny 1
+             - Chad
+             - Roland
+        WildTableList: 
+            - MAP_ROUTE124
+        Sublocations:
+            -
+                Name: Route 124 Red Shard
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 124
+                FlagReqs:
+                    - Mind Badge
+                ItemReqs:
+                    - Dive
+                Type: Item
+                NormalItem: ITEM_RED_SHARD
+                Code: |
+                    Route124_EventScript_1B168F:: @ 81B168F
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 124 Blue Shard
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 124
+                FlagReqs:
+                    - Mind Badge
+                ItemReqs:
+                    - Dive
+                Type: Item
+                NormalItem: ITEM_BLUE_SHARD
+                Code: |
+                    Route124_EventScript_1B169C:: @ 81B169C
+                        giveitem_std ITEMNAME, 1, 1
+                        end
+            -
+                Name: Route 124 Yellow Shard
+                ScriptFileName: data/item_ball_scripts.inc
+                LocationReqs: 
+                    - Route 124
+                FlagReqs:
+                    - Mind Badge
+                ItemReqs:
+                    - Dive
+                Type: Item
+                NormalItem: ITEM_YELLOW_SHARD
+                Code: |
+                    Route124_EventScript_1B16A9:: @ 81B16A9
+                        giveitem_std ITEMNAME, 1, 1
+                        end

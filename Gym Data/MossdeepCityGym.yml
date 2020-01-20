@@ -1,0 +1,55 @@
+Location:
+    -
+        Name: Mossdeep City Gym Badge
+        ScriptFileName: data/maps/MossdeepCity_Gym/scripts.inc
+        LocationReqs:
+            - Mossdeep Gym TM
+        Type: Gym
+        GymType: Psychic
+        HasPKMN: No
+        WildTableList:
+        FlagReqs:
+        ItemReqs:
+        FlagsSet:
+        ReachableReqs:
+        ItemUnlock: Dive
+        InfeasibleBadges:
+        NormalBadge: Mind Badge
+        BadgeLine: |
+            MossdeepCity_Gym_EventScript_15A594:: @ 815A594
+                message MossdeepCity_Gym_Text_18D0F9
+                waitmessage
+                call MossdeepCity_Gym_EventScript_1A02C5
+                msgbox MossdeepCity_Gym_Text_18D128, 4
+                setflag FLAG_DEFEATED_MOSSDEEP_GYM
+                setflag BADGEFLAG
+                clearflag FLAG_HIDE_BRINEY_SLATEPORT_SHIPYARD
+                clearflag FLAG_UNKNOWN_393
+                setvar VAR_0x8008, 7
+                call MossdeepCity_Gym_EventScript_1A01C0
+                clearflag FLAG_HIDE_WORKERS_SLATEPORT_HARBOR
+                goto MossdeepCity_Gym_EventScript_15A5C6
+                end
+        Code:
+        Text:
+            -
+                File: data/maps/MossdeepCity_Gym/text.inc
+                Text: |
+                    MossdeepCity_Gym_Text_18D0F9:: @ 818D0F9
+                        .string "{PLAYER} received the BADGENAME\n"
+                        .string "from LIZA and TATE.$"
+                File: data/maps/MossdeepCity_Gym/text.inc
+                Text: |
+                    MossdeepCity_Gym_Text_18C7E3:: @ 818C7E3
+                        .string "Yo, how's it going, CHAMPION-bound\n"
+                        .string "{PLAYER}?\p"
+                        .string "The GYM LEADERS here use GYMTYPE-type\n"
+                        .string "POKéMON.\p"
+                        .string "If you go up against them with\n"
+                        .string "FIGHTING- or POISON-type POKéMON,\l"
+                        .string "they'll inflict horrible damage!\p"
+                        .string "Plus, they'll come at you with\n"
+                        .string "outstanding combination attacks.\p"
+                        .string "If you want to win, you'll need to show\n"
+                        .string "them how tight you are with your\l"
+                        .string "POKéMON. Go for it!$"

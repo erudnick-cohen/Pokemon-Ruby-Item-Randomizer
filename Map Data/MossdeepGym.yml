@@ -1,0 +1,36 @@
+Location:
+    -
+        Name: Mossdeep Gym TM
+        ScriptFileName: data/maps/MossdeepCity_Gym/scripts.inc
+        TextFileName: data/maps/MossdeepCity_Gym/text.inc
+        HasPKMN: Yes
+        Type: Item
+        LocationReqs:
+            - Mossdeep City
+        TrainerList:
+             - Preston
+             - Maura
+             - Samantha
+             - Fritz
+             - Virgil
+             - Hannah
+             - LizaAndTate
+        NormalItem: ITEM_TM42_FACADE
+        Code: |
+            MossdeepCity_Gym_EventScript_15A5C6:: @ 815A5C6
+                giveitem_std ITEM_TM04_CALM_MIND
+                compare VAR_RESULT, 0
+                goto_if_eq MossdeepCity_Gym_EventScript_1A029B
+                msgbox MossdeepCity_Gym_Text_18D1CF, 4
+                setflag FLAG_RECEIVED_TM04
+                release
+                end
+        Text: |
+            MossdeepCity_Gym_Text_18D1CF:: @ 818D1CF
+                .string "TATE: That TM04 contains...\n"
+                .string "LIZA: ITEMNAME!\p"
+                .string "TATE: It raises SP. ATK and...\n"
+                .string "LIZA: It raises SP. DEF!\p"
+                .string "TATE: It's a move that's perfect...\n"
+                .string "LIZA: For PSYCHIC POKéMON!$"
+        Sublocations:
