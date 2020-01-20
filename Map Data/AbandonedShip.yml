@@ -118,7 +118,7 @@ Location:
                         giveitem_std ITEMNAME, 1, 1
                         end
             -
-                Name: Water Stone
+                Name: Abandoned Ship Water Stone
                 ScriptFileName: data/item_ball_scripts.inc
                 LocationReqs: 
                     - Abandoned Ship
