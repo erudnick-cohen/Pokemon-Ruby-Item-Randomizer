@@ -8,6 +8,8 @@ Location:
              - Eric
              - Ethan 1
              - Diana 1
+        WildTableList: 
+            - MAP_JAGGED_PASS
         Sublocations:
             -
                 Name: Jagged Pass Burn Heal
