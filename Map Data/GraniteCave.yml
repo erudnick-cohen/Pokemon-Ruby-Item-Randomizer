@@ -79,13 +79,11 @@ Location:
                         TextFileName: data/maps/GraniteCave_StevensRoom/text.inc
                         Type: Item
                         LocationReqs: 
-                            - Granite Cave Inside
                         FlagReqs:
                             - Knuckle Badge
                         FlagsSet:
                             - Gave Steven Letter
                         ItemReqs:
-                            - Flash
                             - Letter
                         NormalItem: ITEM_TM47_STEEL_WING
                         Code: |
